@@ -1,0 +1,7 @@
+Persona 2 User Stories
+
+1. As a business woman, I need to have a rewards/loyalty system, so that I can get discounts on reservations the more I book/stay
+
+2. As a business woman, I need to be able to look up my reservations, so that I can see which reservations I have already booked
+
+3. As a business woman, I need all of my information to be saved within my profile, so that I do not have to re-enter every time I make a new reservation
