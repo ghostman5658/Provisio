@@ -1,5 +1,5 @@
 # Provisio
-##Bellevue University Capstone Project CSD 460
+## Bellevue University Capstone Project CSD 460
 ## Contributors
 - Kyle Gotzman
 - Chee Her
