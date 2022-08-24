@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>This is a test on the server from Chee
+<div>This is a test on the server from Chee and Kyle G
 </div>
 
 </body>
