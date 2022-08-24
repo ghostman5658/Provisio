@@ -9,4 +9,24 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-</web-app>
+  <context-param>
+  <param-name>dbURL</param-name>
+  <param-value>jdbc:mysql://localhost:3306</param-value>
+  </context-param>
+  <context-param>
+  <param-name>dbURLandName</param-name>
+  <param-value>jdbc:mysql://localhost:3306/provisio</param-value>
+  </context-param>
+  <context-param>
+  <param-name>dbName</param-name>
+  <param-value>provisio</param-value>
+  </context-param>
+  <context-param>
+  <param-name>dbUser</param-name>
+  <param-value>root</param-value>
+  </context-param>
+  <context-param>
+  <param-name>dbPass</param-name>
+  <param-value>password</param-value>
+  </context-param>
+</web-app> 
