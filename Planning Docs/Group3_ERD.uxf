@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>30</y><w>210</w><h>150</h></coordinates><panel_attributes>Hotel
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>30</y><w>210</w><h>200</h></coordinates><panel_attributes>Hotel
 --
 HotelID (PK)
 HotelName
@@ -8,7 +8,9 @@ City
 Country
 NumberofRooms
 PhoneNumber
-
+Attraction 1
+Attraction 2
+Attraction 3
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>340</y><w>210</w><h>140</h></coordinates><panel_attributes>Room
 --
 RoomID (PK)
@@ -39,6 +41,7 @@ ReservationID (PK)
 BookingDate
 ArrivalDate
 DepartureDate
+Points Earned
 HotelID (FK)
 Email (FK)
 RoomID (FK)
@@ -48,10 +51,10 @@ RoomID (FK)
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>470</y><w>50</w><h>240</h></coordinates><panel_attributes>lt=-
 m1=1..*
 m2=1..1
-</panel_attributes><additional_attributes>10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>170</y><w>50</w><h>190</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>220</y><w>50</w><h>140</h></coordinates><panel_attributes>lt=-
 m1=1..*
 m2=1..1
-</panel_attributes><additional_attributes>10;170;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>390</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
+</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>390</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
 m1=1..1
 m2=0..*
 </panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>390</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
