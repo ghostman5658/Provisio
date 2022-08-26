@@ -61,6 +61,44 @@
             out.println("<b>Table amenities Creation failed</b><br />");
         }
             
+        try{                
+            stmt.executeUpdate("DROP TABLE reservation");
+            out.println("<b>Table reservation Dropped</b><br />");
+        }
+        catch(SQLException e){                
+            out.println("<b>Table reservation does not exist</b><br />");
+        }
+            
+        try{
+            String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate date NOT NULL, " +
+                    "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, Email varchar(30) NOT NULL, PRIMARY KEY (ReservationId), FOREIGN KEY (HotelId), FOREIGN KEY (Email), FOREIGN KEY (RoomId));";
+            	
+            stmt.executeUpdate(query);
+            out.println("<b>Table reservation Created</b><br />");
+        }
+        catch(SQLException e){
+            out.println("<b>Table reservation Creation failed</b><br />");
+        }
+
+        try{                
+            stmt.executeUpdate("DROP TABLE user");
+            out.println("<b>Table user Dropped</b><br />");
+        }
+        catch(SQLException e){                
+            out.println("<b>Table user does not exist</b><br />");
+        }
+            
+        try{
+            String query = "CREATE TABLE user(Email varchar(30) NOT NULL, Password varchar(30) NOT NULL, " +
+                    "FirstName varchar(30) NOT NULL, LastName varchar(30) NOT NULL, LoyaltyPoints int NOT NULL, PRIMARY KEY (Email));";
+            	
+            stmt.executeUpdate(query);
+            out.println("<b>Table user Created</b><br />");
+        }
+        catch(SQLException e){
+            out.println("<b>Table user Creation failed</b><br />");
+        }
+
         try{
             stmt.close();
             con.close(); 
