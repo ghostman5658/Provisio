@@ -43,21 +43,22 @@
         }
             
         try{                
-            stmt.executeUpdate("DROP TABLE HOTEL");
-            out.println("<b>Table HOTEL Dropped</b><br />");
+            stmt.executeUpdate("DROP TABLE amenities");
+            out.println("<b>Table amenities Dropped</b><br />");
         }
         catch(SQLException e){                
-            out.println("<b>Table HOTEL does not exist</b><br />");
+            out.println("<b>Table amenities does not exist</b><br />");
         }
             
         try{
-            String query = "CREATE TABLE HOTEL(    );";
+            String query = "CREATE TABLE amenities(amenities_id not null int, name not null varchar(15), " +
+                    "cost not null double, chargeFrequency not null varchar(15), room_id not null int, primary key(amenities_id), foreign key (room_id));";
             	
             stmt.executeUpdate(query);
-            out.println("<b>Table HOTEL Created</b><br />");
+            out.println("<b>Table amenities Created</b><br />");
         }
         catch(SQLException e){
-            out.println("<b>Table HOTEL Creation failed</b><br />");
+            out.println("<b>Table amenities Creation failed</b><br />");
         }
             
         try{

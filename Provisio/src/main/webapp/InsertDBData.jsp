@@ -43,7 +43,7 @@
         }
             
         try{
-            stmt.executeUpdate("INSERT INTO HOTEL()"); 
+            stmt.executeUpdate("INSERT INTO AMENITIES()"); 
            
             
             out.println("<b>Data Inserted</b><br />");
