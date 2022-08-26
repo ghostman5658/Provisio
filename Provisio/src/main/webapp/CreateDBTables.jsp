@@ -69,6 +69,7 @@
             out.println("<b>Table reservation does not exist</b><br />");
         }
             
+        //Needs to be updated with the foreign keys HotelId and RoomId
         try{
             String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate date NOT NULL, " +
                     "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, Email varchar(30) NOT NULL, PRIMARY KEY (ReservationId), FOREIGN KEY (HotelId), FOREIGN KEY (Email), FOREIGN KEY (RoomId));";
