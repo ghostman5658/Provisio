@@ -1,0 +1,3 @@
+INSERT INTO `provisio`.`user` (`Email`, `Password`, `FirstName`, `LastName`, `LoyaltyPoints`) VALUES ('JohnnyW01@example.com', 'Johnny1', 'Johnny', 'Wanderer', 0);
+INSERT INTO `provisio`.`user` (`Email`, `Password`, `FirstName`, `LastName`, `LoyaltyPoints`) VALUES ('JamieS87@example.com', 'Jamie1', 'Jamie', 'Smith', 0);
+INSERT INTO `provisio`.`user` (`Email`, `Password`, `FirstName`, `LastName`, `LoyaltyPoints`) VALUES ('AdaW93@example.com', 'Ada1', 'Ada', 'Wilson', 0);
