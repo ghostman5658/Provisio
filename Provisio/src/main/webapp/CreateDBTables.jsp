@@ -62,11 +62,11 @@
         }
             
         try{                
-            stmt.executeUpdate("DROP TABLE reservation");
-            out.println("<b>Table reservation Dropped</b><br />");
+            stmt.executeUpdate("DROP TABLE room");
+            out.println("<b>Table room Dropped</b><br />");
         }
         catch(SQLException e){                
-            out.println("<b>Table reservation does not exist</b><br />");
+            out.println("<b>Table room does not exist</b><br />");
         }
         
         try{
@@ -81,11 +81,11 @@
         }
             
         try{                
-            stmt.executeUpdate("DROP TABLE reservation");
-            out.println("<b>Table room Dropped</b><br />");
+            stmt.executeUpdate("DROP TABLE hotel");
+            out.println("<b>Table hotel Dropped</b><br />");
         }
         catch(SQLException e){                
-            out.println("<b>Table room does not exist</b><br />");
+            out.println("<b>Table hotel does not exist</b><br />");
         }
         
         try{
@@ -103,15 +103,15 @@
             
         try{                
             stmt.executeUpdate("DROP TABLE reservation");
-            out.println("<b>Table hotel Dropped</b><br />");
+            out.println("<b>Table reservation Dropped</b><br />");
         }
         catch(SQLException e){                
-            out.println("<b>Table hotel does not exist</b><br />");
+            out.println("<b>Table reservation does not exist</b><br />");
         }
             
         try{
             String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate date NOT NULL, " +
-                    "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, Email varchar(30) NOT NULL, PRIMARY KEY (ReservationId), FOREIGN KEY (HotelId), FOREIGN KEY (Email), FOREIGN KEY (RoomId));";
+                    "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, HotelId int NOT NULL, Email varchar(30) NOT NULL, RoomId int NOT NULL, PRIMARY KEY (ReservationId), FOREIGN KEY (HotelId), FOREIGN KEY (Email), FOREIGN KEY (RoomId));";
             	
             stmt.executeUpdate(query);
             out.println("<b>Table reservation Created</b><br />");
