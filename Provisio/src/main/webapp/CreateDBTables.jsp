@@ -68,8 +68,47 @@
         catch(SQLException e){                
             out.println("<b>Table reservation does not exist</b><br />");
         }
+        
+        try{
+            String query = "CREATE TABLE room(RoomId int NOT NULL, Name NOT NULL varchar(30), Size int NOT NULL, NumberOfGuests int NOT NULL," +
+       				 "BasePrice double NOT NULL, PRIMARY KEY (RoomId), foreign key (HotelId));";
+            	
+            stmt.executeUpdate(query);
+            out.println("<b>Table room Created</b><br />");
+        }
+        catch(SQLException e){
+            out.println("<b>Table room Creation failed</b><br />");
+        }
             
-        //Needs to be updated with the foreign keys HotelId and RoomId
+        try{                
+            stmt.executeUpdate("DROP TABLE reservation");
+            out.println("<b>Table room Dropped</b><br />");
+        }
+        catch(SQLException e){                
+            out.println("<b>Table room does not exist</b><br />");
+        }
+        
+        try{
+            String query = "CREATE TABLE hotel(HotelId int NOT NULL, HotelName NOT NULL varchar(30), Address NOT NULL varchar(30), PostCode int NOT NULL," +
+       				 "City NOT NULL varchar(15), Country NOT NULL varchar(15), NumberOfRooms int NOT NULL, PhoneNumber NOT int NULL," + 
+            			"Attraction1 NOT NULL varchar(50), Attraction2 NOT NULL varchar(50), Attraction3 NOT NULL varchar(50)," +
+       				 		"PRIMARY KEY (HotelId), foreign key (ReservationId));";
+            	
+            stmt.executeUpdate(query);
+            out.println("<b>Table hotel Created</b><br />");
+        }
+        catch(SQLException e){
+            out.println("<b>Table hotel Creation failed</b><br />");
+        }
+            
+        try{                
+            stmt.executeUpdate("DROP TABLE reservation");
+            out.println("<b>Table hotel Dropped</b><br />");
+        }
+        catch(SQLException e){                
+            out.println("<b>Table hotel does not exist</b><br />");
+        }
+            
         try{
             String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate date NOT NULL, " +
                     "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, Email varchar(30) NOT NULL, PRIMARY KEY (ReservationId), FOREIGN KEY (HotelId), FOREIGN KEY (Email), FOREIGN KEY (RoomId));";
@@ -108,6 +147,8 @@
         catch(SQLException e){
             out.println("<b>Connection close failed</b><br />");
         }
+        
+        
     %>    
 </body>
 </html>
