@@ -4,10 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Provisio</title>
 </head>
 <body>
-<div>This is a test on the server from Chee and Kyle
+<div>
+	<a href="setup.html">Setup Provisio Database</a><br />
 </div>
 
 </body>

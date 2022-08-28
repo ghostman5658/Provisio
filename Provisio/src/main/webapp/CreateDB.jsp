@@ -10,7 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html">
 </head>
 <body>
-	<a href="/setup.html">Setup</a>
+	<a href="setup.html">Setup</a>
 	<hr>
 	<h1>Create Database</h1>
 
