@@ -19,13 +19,13 @@ Size
 NumberOfGuests
 BasePrice
 Points
-HotelID (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>690</y><w>210</w><h>110</h></coordinates><panel_attributes>Amenities
+HotelID (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>690</y><w>210</w><h>90</h></coordinates><panel_attributes>Amenities
 --
 AmenityID (PK)
 name
 cost
 chargeFrequency
-RoomID (FK)
+
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>810</x><y>350</y><w>210</w><h>110</h></coordinates><panel_attributes>User
 --
 Email (PK)
