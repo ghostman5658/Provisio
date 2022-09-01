@@ -112,6 +112,35 @@ h2 {
 }
 
 
+#navbar {
+    overflow: hidden;
+    background-color: #2E2C35;
+    text-align: center;
+}
+
+.navbarButton {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;  
+}
+
+.navbarButton:hover {
+    color: #896E60;
+    background-color: white; 
+}
+
+.navbarButtonActive {
+    display: inline-block;
+    color: white;
+    background-color: #4E5B51;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;  
+}
+
+
 
 /*
 color: #4f3674; purple
