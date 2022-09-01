@@ -28,78 +28,95 @@ h2 {
     padding-top: 15px;
 }
 
-* {box-sizing:border-box}
+* {
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
 
 .slideshow-container {
-  position: relative;
-  margin: auto;
+    position: relative;
+    margin: auto;
+    padding-left: .5%;
+    padding-right: .5%;
+    padding-top: .5%;
 }
 
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: #4f3674;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    margin-right: .55%;
+    color: #4f3674;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
 
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 .prev:hover, .next:hover {
-  background-color: rgba(214,168,0,0.7);
+    background-color: rgba(214,168,0,0.7);
 }
 
 .text {
-  color: #4f3674;
-  text-shadow: 3px 3px #D6A800;
-  font-size: 60px;
-  font-weight: 700;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  text-align: center;
+    color: #4f3674;
+    text-shadow: 3px 3px #D6A800;
+    font-size: 60px;
+    font-weight: 700;
+    padding: 16px 1px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    text-align: center;
 }
 
-.numbertext {
-  color: #4f3674;
-  text-shadow: 2px 2px #D6A800;
-  font-size: 24px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.navtext {
+    display: inline-block;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    padding-left: .6%;
+    padding-right: 1.2%;
+    margin-top: -2%;
+    color:#D6A800;
+}
+
+.navimg {
+    display: inline-block;
+    padding-top: .6%;
+    padding-left: 1%;
+    width: 3%;
 }
 
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #4f3674;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #4f3674;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
 .active, .dot:hover {
-  background-color: #D6A800;
+    background-color: #D6A800;
 }
 
 /* change animation type to slide?
 */
 .fade {
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 1.0s;
 }
 
 @keyframes fade {
@@ -119,6 +136,7 @@ h2 {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;  
+    margin-top: -2.4%;
 }
 
 .navbarButton:hover {
@@ -133,6 +151,7 @@ h2 {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;  
+    margin-top: -2.4%;
 }
 
 /*
