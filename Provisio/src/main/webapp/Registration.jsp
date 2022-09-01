@@ -10,12 +10,12 @@
     	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
         
         <div id="navbar">
-            <a class="navbarButton" href="Home.html">Register</a>
+            <a class="navbarButton" href="Home.html">Home</a>
             <a class="navbarButton" href="AboutUs.jsp">About Us</a>
             <a class="navbarButton" href="Locations.jsp">Locations</a>
-            <a class="navbarButton" href="Registration.jsp">Register</a>
-            <a class="navbarButton" href="Login.jsp">Login</a>
             <a class="navbarButtonActive" href="Registration.jsp">Register</a>
+            <a class="navbarButton" href="Login.jsp">Login</a>
+            <a class="navbarButton" href="Reservation.jsp">Reservations</a>
             <a class="navbarButton" href="LookUp.jsp">Look Up</a>
             <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
         </div>
