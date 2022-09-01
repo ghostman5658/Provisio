@@ -10,6 +10,8 @@
     	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
         
         <div id="navbar">
+        	<img src="logo.png" class="navimg">
+       		<div class="navtext">Provisio</div>
             <a class="navbarButton" href="Home.html">Home</a>
             <a class="navbarButton" href="AboutUs.jsp">About Us</a>
             <a class="navbarButton" href="Locations.jsp">Locations</a>
