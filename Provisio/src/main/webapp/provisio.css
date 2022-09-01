@@ -50,17 +50,14 @@ h2 {
   user-select: none;
 }
 
-
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-
 .prev:hover, .next:hover {
   background-color: rgba(214,168,0,0.7);
 }
-
 
 .text {
   color: #4f3674;
@@ -74,7 +71,6 @@ h2 {
   text-align: center;
 }
 
-
 .numbertext {
   color: #4f3674;
   text-shadow: 2px 2px #D6A800;
@@ -83,7 +79,6 @@ h2 {
   position: absolute;
   top: 0;
 }
-
 
 .dot {
   cursor: pointer;
@@ -100,7 +95,8 @@ h2 {
   background-color: #D6A800;
 }
 
-
+/* change animation type to slide?
+*/
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -111,10 +107,9 @@ h2 {
   to {opacity: 1}
 }
 
-
 #navbar {
     overflow: hidden;
-    background-color: #2E2C35;
+    background-color: #4f3674;
     text-align: center;
 }
 
@@ -127,20 +122,18 @@ h2 {
 }
 
 .navbarButton:hover {
-    color: #896E60;
+    color: rgba(214,168,0,0.7);
     background-color: white; 
 }
 
 .navbarButtonActive {
     display: inline-block;
     color: white;
-    background-color: #4E5B51;
+    background-color: #D6A800;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;  
 }
-
-
 
 /*
 color: #4f3674; purple
