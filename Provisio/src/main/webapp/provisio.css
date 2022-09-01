@@ -110,7 +110,7 @@ h2 {
 #navbar {
     overflow: hidden;
     background-color: #4f3674;
-    text-align: center;
+    text-align: left;
 }
 
 .navbarButton {
@@ -122,8 +122,8 @@ h2 {
 }
 
 .navbarButton:hover {
-    color: rgba(214,168,0,0.7);
-    background-color: white; 
+    color: white;
+    background-color: rgba(214,168,0,0.7); 
 }
 
 .navbarButtonActive {

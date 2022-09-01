@@ -8,19 +8,22 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<link rel="stylesheet" type="text/css" href="provisio.css" />
     	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
-	</head>
-	<body>
-		<div id="container">
+        
         <div id="navbar">
-            <a class="navbarButton" href="index.html">Home</a>
+            <a class="navbarButtonActive" href="Home.html">Home</a>
             <a class="navbarButton" href="AboutUs.jsp">About Us</a>
             <a class="navbarButton" href="Locations.jsp">Locations</a>
-            <a class="navbarButtonActive" href="Registration.jsp">Register</a>
+            <a class="navbarButton" href="Registration.jsp">Register</a>
             <a class="navbarButton" href="Login.jsp">Login</a>
             <a class="navbarButton" href="Reservation.jsp">Reservation</a>
             <a class="navbarButton" href="LookUp.jsp">Look Up</a>
             <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
         </div>
+
+	</head>
+	<body>
+		<div id="container">
+
         
         <%
         	//get required values from parameters
