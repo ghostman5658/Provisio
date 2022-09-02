@@ -54,7 +54,6 @@
         <% 
         		}
         		catch(Exception e){
-        			out.println(e);
         			%>
         			<b>Something went wrong.</b><br />
         			<a href="Registration.jsp">Register</a>

@@ -25,7 +25,8 @@ public class RegistrationBean {
             System.out.println("Connection Successful");
         }
         catch(Exception e){
-            System.out.println("Error connection to database.");
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
         }
         
         //Attempt to insert user data into table
@@ -45,6 +46,7 @@ public class RegistrationBean {
         }
         catch(SQLException e){
             System.out.println("Connection close failed");
+            e.printStackTrace();
         }
 	}
 	
@@ -70,7 +72,8 @@ public String[] getUser(String fName, String lName) throws SQLException {
             stmt = con.createStatement();  
         }
         catch(Exception e){
-            System.out.println("Error connection to database.");
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
         }
         
         //Attempt to retrieve user data from the table
@@ -81,6 +84,7 @@ public String[] getUser(String fName, String lName) throws SQLException {
         }
         catch(SQLException e){
             System.out.println("Error retrieving data");
+            e.printStackTrace();
         }
         
         try{
@@ -89,6 +93,7 @@ public String[] getUser(String fName, String lName) throws SQLException {
         }
         catch(SQLException e){
             System.out.println("Connection close failed");
+            e.printStackTrace();
         }
         String firstName = fn.getString("FirstName");
         String lastName = ln.getString("LastName");
