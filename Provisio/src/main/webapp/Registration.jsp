@@ -40,24 +40,37 @@
                 String lName = request.getParameter("lName"); 
                 String email = request.getParameter("email"); 
                 String password = request.getParameter("password"); 
-                			
-                newUser.setUser(fName, lName, email, password);
-                String [] user = newUser.getUser(fName, lName);
-                String fn = user[0];
-                String ln = user[1];
+               	
+                String available = newUser.checkUser(email);
+               
+                if (available == "taken") {
+                	%>
+                	<div class="registerResponse">
+        				<h3>That email is already in use</h3><br />
+        				<a href="Registration.jsp">Try Again</a>
+        			</div>
+        			<%
+                }
                 
-                %>	
-        	<div class="loginSummary">
-        		<h2>Congratulations<%=" " + fn + " " + ln + " "%> your account was created successfully!</h2>
-        	</div>
-        
-        <% 
+                else if (available == "available") {
+                	newUser.setUser(fName, lName, email, password);
+                    String [] user = newUser.getUser(fName, lName);
+                	%>	
+                	<div class="registerResponse">
+                		<h3>Congratulations<%=" " + user[0] + " " + user[1] + " "%> your account was created successfully!</h3><br />
+                		<a href="Login.jsp">Login</a>
+                	</div>
+                	<% 
+                	}
         		}
         		catch(Exception e){
+        			e.printStackTrace();
         			%>
-        			<b>Something went wrong.</b><br />
-        			<a href="Registration.jsp">Register</a>
-        		<%
+        			<div class="registerResponse">
+        				<h3>Oops! Something went wrong.</h3><br />
+        				<a href="Registration.jsp">Try Again</a>
+        			</div>
+        			<%
                 }
         	}
         %>
