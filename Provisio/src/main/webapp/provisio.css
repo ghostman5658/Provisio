@@ -124,7 +124,7 @@ h2 {
   to {opacity: 1}
 }
 
-#navbar {
+.navbar {
     overflow: hidden;
     background-color: #4f3674;
     text-align: left;
