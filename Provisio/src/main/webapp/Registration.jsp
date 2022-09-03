@@ -47,7 +47,7 @@
                 	%>
                 	<div class="registerResponse">
         				<h3>That email is already in use</h3><br />
-        				<a href="Registration.jsp">Try Again</a>
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
         			</div>
         			<%
                 }
@@ -58,7 +58,7 @@
                 	%>	
                 	<div class="registerResponse">
                 		<h3>Congratulations<%=" " + user[0] + " " + user[1] + " "%> your account was created successfully!</h3><br />
-                		<a href="Login.jsp">Login</a>
+                		<a class="highlight" href="Login.jsp">Login</a>
                 	</div>
                 	<% 
                 	}
@@ -68,7 +68,7 @@
         			%>
         			<div class="registerResponse">
         				<h3>Oops! Something went wrong.</h3><br />
-        				<a href="Registration.jsp">Try Again</a>
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
         			</div>
         			<%
                 }
@@ -82,23 +82,24 @@
         <form class="randl" method='post' action='Registration.jsp'>   
                 <h1 class="formHeading">Register</h1> <hr /><br />
                 
-                    <p> 
-                        First Name:
-                       <input class="formInput" name="fName" type="text" min="0" maxlength="15" required="required"> 
-                    </p>
-                    <p> 
-                        Last Name:
-                       <input class="formInput" name="lName" type="text" min="0" maxlength="15" required="required"> 
-                    </p>
-                    <p> 
-                        Email: 
-                       <input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> 
-                    </p>
-                    <p> 
-                        Password: 
-                       <input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> 
-                    </p>
-         
+                	<table>
+                		<tr>
+                			<td>First Name:</td>
+                			<td><input class="formInput" name="fName" type="text" min="0" maxlength="15" required="required"> </td>
+                		</tr>
+                		<tr>
+                			<td>Last Name:</td>
+                			<td><input class="formInput" name="lName" type="text" min="0" maxlength="15" required="required"> </td>
+                		</tr>
+                   		<tr>
+                			<td>Email:</td>
+                			<td><input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> </td>
+                		</tr>
+                		<tr>
+                			<td>Password:</td>
+                			<td><input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> </td>
+                		</tr>
+                    </table>
             	<div class="center">
                 	<button type='submit'>Register</button><br />  
                 	<a class="highlight" href="Login.jsp">Login</a>

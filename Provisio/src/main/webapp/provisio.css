@@ -179,9 +179,18 @@ h2 {
 .formHeading {
 	font-size: 1.875em;
 	margin-bottom: 10px;
+	color: #4f3674;
+    text-shadow: 3px 3px #D6A800;
 	
 }
 
+.formInput {
+	margin-bottom: 5px;
+}
+
+td {
+	text-align: right;
+}
 
 .center {
     width: 100%;
@@ -194,6 +203,7 @@ h2 {
 .highlight:hover {
     color: white;
     background-color: #4f3674; 
+    padding: 2px;
 }
 
 button {

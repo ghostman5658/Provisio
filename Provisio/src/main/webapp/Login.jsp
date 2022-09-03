@@ -51,6 +51,7 @@
                 }
                 
                 else if (available == "loginSuccess") {
+                	session.setAttribute("sessionID", email);
                 	%>	
                 	<div class="registerResponse">
                 		<h3>Login Successful</h3><br />
@@ -76,12 +77,12 @@
         %>
 
 
-		<form action="user_login" method="post" action='Login.jsp'>
-		<h1 class="formHeading">Login</h1> 
+		<form class="randl" method="post" action='Login.jsp'>
+		<h1 class="formHeading">Login</h1><hr /><br /> 
 		
-			<table style="width: 20%">
+			<table>
 				<tr>
-					<td>Username: </td>
+					<td>Email: </td>
 					<td><input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> </td>
 				</tr>
 				<tr>
@@ -92,7 +93,7 @@
 			<div class="center">
                 	<button type='submit'>Login</button><br />  
                 	<a class="highlight" href="Registration.jsp">Register</a>
-            	</div>
+            </div>
 		</form>
 		<%
         	}
