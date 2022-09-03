@@ -41,37 +41,48 @@
                	
                 String available = newUser.checkLogin(email, password);
                 
-               
-                // if login user or password incorrect
-                if (available == "loginFail") {
-                	%>
-                	<div class="registerResponse">
-        				<h3>Error: Incorrect Username or Password</h3><br />
-        				<a class="highlight" href="Login.jsp">Please Try Again</a>
-        			</div>
-        			<%
-                }
-                
-                else if (available == "loginSuccess") {
-                	session.setAttribute("sessionID", email);
-                	%>	
-                	<div class="registerResponse">
-                		<h3>Login Successful</h3><br />
-                		<a class="highlight" href="index.html">Go Home</a><br />
-                		
-                	</div>
-                	<% 
+                if (session.getAttribute("sessionID") == null || session.getAttribute("sessionID") == "") {
+                	
+                	// if login user or password incorrect
+                	if (available == "loginFail") {
+                		%>
+                		<div class="registerResponse">
+        					<h3>Error: Incorrect Username or Password</h3><br />
+        					<a class="highlight" href="Login.jsp">Please Try Again</a>
+        				</div>
+        				<%
                 	}
-        		}
-        		catch(Exception e){
-        			e.printStackTrace();
-        			%>
-        			<div class="registerResponse">
-        				<h3>Oops! Something went wrong.</h3><br />
-        				<a class="highlight" href="Registration.jsp">Try Again</a>
-        			</div>
-        			<%
+                
+                	else if (available == "loginSuccess") {
+                		session.setAttribute("sessionID", email);
+                		%>	
+                		<div class="registerResponse">
+                			<h3>Login Successful</h3><br />
+                			<a class="highlight" href="index.html">Go Home</a><br />
+                		
+                		</div>
+                		<% 
+                		}
+        			}
+                else {
+                	%>	
+            		<div class="registerResponse">
+            			<h3>You are already logged in</h3><br />
+            			<a class="highlight" href="index.html">Go Home</a><br />
+            		</div>
+            		<% 
                 }
+        	}
+        	
+        	catch(Exception e){
+        		e.printStackTrace();
+        		%>
+        		<div class="registerResponse">
+        			<h3>Oops! Something went wrong.</h3><br />
+        			<a class="highlight" href="Registration.jsp">Try Again</a>
+        		</div>
+        		<%
+               }
         	}
         %>
          
