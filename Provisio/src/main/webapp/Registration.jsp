@@ -80,7 +80,7 @@
         %>
 
         <form class="randl" method='post' action='Registration.jsp'>   
-                <h1 class="formHeading">Registration</h1> 
+                <h1 class="formHeading">Register</h1> <hr /><br />
                 
                     <p> 
                         First Name:
@@ -95,7 +95,7 @@
                        <input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> 
                     </p>
                     <p> 
-                        Password 
+                        Password: 
                        <input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> 
                     </p>
          
