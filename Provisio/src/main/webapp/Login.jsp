@@ -5,25 +5,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-		<title>Login</title>
-    	<link href="provisio.css" type="text/css" rel="stylesheet"/>
-    	<meta charset="UTF-8">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	<meta http-equiv="Content-Type" content="text/html">
+	<title>Login</title>
+    <link href="provisio.css" type="text/css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html">
 
-<div class="navbar">
-	<img src="logo.png" class="navimg">
-	<div class="navtext">Provisio</div>
-	<a class="navbarButton" href="index.html">Home</a> 
-	<a class="navbarButton" href="AboutUs.jsp">About Us</a> 
-	<a class="navbarButton" href="Locations.jsp">Locations</a> 
-	<a class="navbarButton" href="Registration.jsp">Register</a> 
-	<a class="navbarButtonActive" href="Login.jsp">Login</a> 
-	<a class="navbarButton" href="Reservation.jsp">Reservations</a> 
-	<a class="navbarButton" href="LookUp.jsp">Look Up</a> 
-	<a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
-	<a class="navbarButtonLogOut" href=<%session.invalidate();%>"index.html">Log Out</a>
-</div>
+    <div class="navbar">
+        <img src="logo.png" class="navimg">
+        <div class="navtext">Provisio</div>
+        <a class="navbarButton" href="index.html">Home</a> 
+        <a class="navbarButton" href="AboutUs.jsp">About Us</a> 
+        <a class="navbarButton" href="Locations.jsp">Locations</a> 
+        <a class="navbarButton" href="Registration.jsp">Register</a> 
+        <a class="navbarButtonActive" href="Login.jsp">Login</a> 
+        <a class="navbarButton" href="Reservation.jsp">Reservations</a> 
+        <a class="navbarButton" href="LookUp.jsp">Look Up</a> 
+        <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
+        <a class="navbarButtonLogOut" href=<%session.invalidate();%>"index.html">Log Out</a>
+    </div>
 
 </head>
 <body>
