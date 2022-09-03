@@ -22,6 +22,7 @@
             <a class="navbarButton" href="Reservation.jsp">Reservations</a>
             <a class="navbarButton" href="LookUp.jsp">Look Up</a>
             <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
+            <a class="navbarButtonLogOut" href=<%session.invalidate();%>"index.html">Log Out</a>
         </div>
 
 	</head>
