@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="provisio.beans.*"%>
+<%@ page import="provisio.beans.LoginBean"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,7 @@
 	<a class="navbarButton" href="Reservation.jsp">Reservations</a> 
 	<a class="navbarButton" href="LookUp.jsp">Look Up</a> 
 	<a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
+	<a <% %>class="navbarButtonLogOut" href="index.html">Log Out</a>
 </div>
 
 </head>
@@ -45,7 +46,7 @@
                 	%>
                 	<div class="registerResponse">
         				<h3>Error: Incorrect Username or Password</h3><br />
-        				<a href="Login.jsp">Please Try Again</a>
+        				<a class="highlight" href="Login.jsp">Please Try Again</a>
         			</div>
         			<%
                 }
@@ -55,7 +56,8 @@
                 	%>	
                 	<div class="registerResponse">
                 		<h3>Login Successful</h3><br />
-                		<a href="index.html">Go Home</a>
+                		<a class="highlight" href="index.html">Go Home</a><br />
+                		
                 	</div>
                 	<% 
                 	}
@@ -65,7 +67,7 @@
         			%>
         			<div class="registerResponse">
         				<h3>Oops! Something went wrong.</h3><br />
-        				<a href="Registration.jsp">Try Again</a>
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
         			</div>
         			<%
                 }

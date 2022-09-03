@@ -139,7 +139,7 @@ h2 {
     margin-top: -2.4%;
 }
 
-.navbarButton:hover {
+.navbarButton:hover, .navbarButtonLogOut:hover {
     color: white;
     background-color: rgba(214,168,0,0.7); 
 }
@@ -153,6 +153,17 @@ h2 {
     text-decoration: none;  
     margin-top: -2.4%;
 }
+
+.navbarButtonLogOut {
+	
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;  
+    margin-top: 10px;
+	float: right;
+}
+
 
 .boxes {
     float: left; 
