@@ -101,7 +101,7 @@
          
             	<div class="center">
                 	<button type='submit'>Register</button><br />  
-                	<a href="Login.jsp">Login</a>
+                	<a class="highlight" href="Login.jsp">Login</a>
             	</div>
         	
     	</form>  

@@ -165,16 +165,15 @@ h2 {
 }
 
 .randl {
-	border: 3px solid black;
+	border: 2px solid black;
 	display:block;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10%;
 	width: 500px;
 	padding:10px;
-	border-radius: 5%;
 	text-align: center;
-	
+	border-radius: 10px;
 }
 
 .formHeading {
@@ -187,9 +186,15 @@ h2 {
 .center {
     width: 100%;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
  
 } 
+
+.highlight:hover {
+    color: white;
+    background-color: #4f3674; 
+}
 
 button {
     margin: center;
@@ -200,6 +205,7 @@ button {
     font-size: large;
     cursor: pointer; 
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .registerResponse {
