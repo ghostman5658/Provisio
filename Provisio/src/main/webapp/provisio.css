@@ -164,6 +164,42 @@ h2 {
     border-radius: 15px;
 }
 
+.randl {
+	border: 3px solid black;
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
+	width: 500px;
+	padding:10px;
+	border-radius: 5%;
+	text-align: center;
+}
+
+.formHeading {
+	font-size: 1.875em;
+	margin-bottom: 10px;
+	
+}
+
+.center {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+ 
+} 
+
+button {
+    margin: center;
+    background-color: #4f3674;
+    color: white;
+    height: 45px;
+    width: 100px;
+    font-size: large;
+    cursor: pointer; 
+    margin-bottom: 10px;
+}
+
 /*
 color: #4f3674; purple
 color: #D6A800; gold

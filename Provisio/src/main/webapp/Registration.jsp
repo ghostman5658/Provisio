@@ -79,24 +79,24 @@
         	if(request.getMethod().equals("GET")){
         %>
 
-        <form class="login" method='post' action='Registration.jsp'>   
+        <form class="randl" method='post' action='Registration.jsp'>   
                 <h1 class="formHeading">Registration</h1> 
                 
-                    <p class="formInput"> 
+                    <p> 
                         First Name:
-                       <input name="fName" type="text" min="0" maxlength="15" required="required"> 
+                       <input class="formInput" name="fName" type="text" min="0" maxlength="15" required="required"> 
                     </p>
-                    <p class="formInput"> 
+                    <p> 
                         Last Name:
-                       <input name="lName" type="text" min="0" maxlength="15" required="required"> 
+                       <input class="formInput" name="lName" type="text" min="0" maxlength="15" required="required"> 
                     </p>
-                    <p class="formInput"> 
+                    <p> 
                         Email: 
-                       <input name="email" type="text" min="0" maxlength="30" required="required"> 
+                       <input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> 
                     </p>
-                    <p class="formInput"> 
+                    <p> 
                         Password 
-                       <input name="password" type="password" min="0" maxlength="20" required="required"> 
+                       <input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> 
                     </p>
          
             	<div class="center">
