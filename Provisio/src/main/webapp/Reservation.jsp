@@ -8,7 +8,6 @@
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<meta http-equiv="Content-Type" content="text/html">
-    	
         <div class="navbar">
         	<img src="logo.png" class="navimg">
        		<div class="navtext">Provisio</div>
@@ -22,7 +21,6 @@
             <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
             <a class="navbarButtonLogOut" href="LogOut.jsp">Log Out</a>
         </div>
-
 	</head>
 	<body>
 		<div width="98%">
@@ -34,30 +32,30 @@
                             <p>
                                 <label>Destination<br />
                                     <select name="City">
-                                        <option>Omaha</option>
-                                        <option>Denver</option>
-                                        <option>Los Angeles</option>
+                                        <option value="Omaha">Omaha</option>
+                                        <option value="Denver">Denver</option>
+                                        <option value="LosAngeles">Los Angeles</option>
                                     </select>
                                 </label>
                             </p>
                             <p>
                                 <label>Room Size<br />
                                     <select name="RoomSize">
-                                        <option>One Queen Bed</option>
-                                        <option>Two Twin Beds</option>
-                                        <option>One King Bed</option>
-                                        <option>Two Queen Beds</option>
+                                        <option value="Queen">One Queen Bed</option>
+                                        <option value="Double">Two Twin Beds</option>
+                                        <option value="King">One King Bed</option>
+                                        <option value="TwoQueen">Two Queen Beds</option>
                                     </select>
                                 </label>
                             </p>
                             <p>
                                 <label>Number of Guests<br />
                                     <select name="Guests">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
                                     </select>
                                 </label>
                             </p>
