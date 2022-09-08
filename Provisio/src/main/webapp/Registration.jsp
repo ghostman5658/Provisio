@@ -28,8 +28,6 @@
 	</head>
 	<body>
 		<div id="container">
-
-        
         <%
         //get required values from parameters
         if(request.getMethod().equals("POST")){
