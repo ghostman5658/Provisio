@@ -16,7 +16,6 @@ Attraction 3
 RoomID (PK)
 Name
 Size
-NumberOfGuests
 BasePrice
 Points
 HotelID (FK)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>690</y><w>210</w><h>90</h></coordinates><panel_attributes>Amenities
@@ -42,6 +41,7 @@ BookingDate
 ArrivalDate
 DepartureDate
 Points Earned
+Number of Guest
 HotelID (FK)
 Email (FK)
 RoomID (FK)
