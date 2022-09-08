@@ -16,7 +16,7 @@
 <body>
 	<a href="setup.html">Setup</a>
 	<h1>Create DB Tables</h1>
-	
+
 	<%
 	
 		//used init param from XML file

@@ -62,20 +62,20 @@
                 		<a class="highlight" href="Login.jsp">Login</a>
                 	</div>
                 	<% 
-            	}
+                	}
+        		}
+        		catch(Exception e){
+        			e.printStackTrace();
+        			%>
+        			<div class="registerResponse">
+        				<h3>Oops! Something went wrong.</h3><br />
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
+        			</div>
+        			<%
+                }
         	}
-        	catch(Exception e){
-        		e.printStackTrace();
-        		%>
-        		<div class="registerResponse">
-        			<h3>Oops! Something went wrong.</h3><br />
-        			<a class="highlight" href="Registration.jsp">Try Again</a>
-        		</div>
-    			<%
-            }
-        }
-    	if(request.getMethod().equals("GET")){
-               %>
+        	if(request.getMethod().equals("GET")){
+        %>
 
         <form class="randl" method='post' action='Registration.jsp'>   
                 <h1 class="formHeading">Register</h1> <hr /><br />
@@ -105,7 +105,7 @@
         	
     	</form>  
     	<%
-        	}
+        }
     	%>
 		</div>
 	</body>
