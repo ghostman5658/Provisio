@@ -68,20 +68,20 @@
         
       	//Attempt to populate room table with data
         //try{
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (1, 'Queen Room', 'queen', 1, 125.00, 150, 1)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (2, 'Double Room', 'double full', 2, 110.00, 150, 1)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (3, 'King Room', 'king', 3, 165.00, 150, 1)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (4, 'Double Queen Room', 'double queen', 4, 150.00, 150, 1)");
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (1, 'Queen Room', 'queen', 125.00, 150, 1)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (2, 'Double Room', 'double full', 110.00, 150, 1)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (3, 'King Room', 'king', 165.00, 150, 1)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (4, 'Double Queen Room', 'double queen', 150.00, 150, 1)");
             
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (5, 'Queen Room', 'queen', 1, 125.00, 150, 2)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (6, 'Double Room', 'double full', 2, 110.00, 150, 2)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (7, 'King Room', 'king', 3, 165.00, 150, 2)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (8, 'Double Queen Room', 'double queen', 4, 150.00, 150, 2)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (5, 'Queen Room', 'queen', 125.00, 150, 2)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (6, 'Double Room', 'double full', 110.00, 150, 2)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (7, 'King Room', 'king', 165.00, 150, 2)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (8, 'Double Queen Room', 'double queen', 150.00, 150, 2)"); 
             
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (9, 'Queen Room', 'queen', 1, 125.00, 150, 3)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (10, 'Double Room', 'double full', 2, 110.00, 150, 3)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (11, 'King Room', 'king', 3, 165.00, 150, 3)"); 
-            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, NumberOfGuests, BasePrice, Points, HotelId) VALUES (12, 'Double Queen Room', 'double queen', 4, 150.00, 150, 3)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (9, 'Queen Room', 'queen', 125.00, 150, 3)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (10, 'Double Room', 'double full', 110.00, 150, 3)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (11, 'King Room', 'king', 165.00, 150, 3)"); 
+            stmt.executeUpdate("INSERT INTO room(RoomId, Name, Size, BasePrice, Points, HotelId) VALUES (12, 'Double Queen Room', 'double queen', 150.00, 150, 3)"); 
 
             out.println("<b>Room Data Inserted</b><br />");
         //}
