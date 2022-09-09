@@ -2,7 +2,6 @@ body {
     background-color: rgba(79,54,116,0.25);
 }
 
-
 p {
     font-family: 'Quattrocento', Georgia, "Times New Roman", serif; /* replace with a different font */    
     font-weight: 400;
@@ -157,7 +156,7 @@ dl{
   to {opacity: 1}
 }
 
-#navbar {
+.navbar {
     overflow: hidden;
     background-color: #4f3674;
     text-align: left;
@@ -172,7 +171,7 @@ dl{
     margin-top: -2.4%;
 }
 
-.navbarButton:hover {
+.navbarButton:hover, .navbarButtonLogOut:hover {
     color: white;
     background-color: rgba(214,168,0,0.7); 
 }
@@ -185,6 +184,15 @@ dl{
     padding: 14px 16px;
     text-decoration: none;  
     margin-top: -2.4%;
+}
+
+.navbarButtonLogOut {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;  
+    margin-top: 10px;
+	float: right;
 }
 
 .boxes {
@@ -223,9 +231,18 @@ dl{
 .formHeading {
 	font-size: 1.875em;
 	margin-bottom: 10px;
+	color: #4f3674;
+    text-shadow: 3px 3px #D6A800;
 	
 }
 
+.formInput {
+	margin-bottom: 5px;
+}
+
+td {
+	text-align: right;
+}
 
 .center {
     width: 100%;
@@ -238,6 +255,7 @@ dl{
 .highlight:hover {
     color: white;
     background-color: #4f3674; 
+    padding: 2px;
 }
 
 button {

@@ -16,7 +16,7 @@
 <body>
 	<a href="setup.html">Setup</a>
 	<h1>Create DB Tables</h1>
-	
+
 	<%
 	
 		//used init param from XML file
@@ -92,7 +92,7 @@
         }
          
         try{
-            String query1 = "CREATE TABLE room(RoomId int NOT NULL, Name varchar(30) NOT NULL, Size varchar(25) NOT NULL, NumberOfGuests int NOT NULL, " +
+            String query1 = "CREATE TABLE room(RoomId int NOT NULL, Name varchar(30) NOT NULL, Size varchar(25) NOT NULL, " +
        				 "BasePrice double NOT NULL, Points int NOT NULL, HotelId int NOT NULL, PRIMARY KEY (RoomId), FOREIGN KEY (HotelId) REFERENCES hotel (HotelId));"; 
             	
             stmt.executeUpdate(query1);
@@ -131,7 +131,7 @@
             
         try{
             String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate date NOT NULL, " +
-                    "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, HotelId int NOT NULL, Email varchar(30) NOT NULL, RoomId int NOT NULL, PRIMARY KEY (ReservationId), " +
+                    "ArrivalDate date NOT NULL, DepartureDate date NOT NULL, PointsEarned int NOT NULL, NumberOfGuests int NOT NULL, HotelId int NOT NULL, Email varchar(30) NOT NULL, RoomId int NOT NULL, PRIMARY KEY (ReservationId), " +
                     "FOREIGN KEY (HotelId) REFERENCES hotel (HotelId), " + 
                     "FOREIGN KEY (Email) REFERENCES user (Email), " + 
                     "FOREIGN KEY (RoomId) REFERENCES room (RoomId));";  

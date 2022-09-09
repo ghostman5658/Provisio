@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="provisio.beans.*"%>
+<%@ page import="provisio.beans.RegistrationBean"%>
 
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     	<meta http-equiv="Content-Type" content="text/html">
     	
-        <div id="navbar">
+        <div class="navbar">
         	<img src="logo.png" class="navimg">
        		<div class="navtext">Provisio</div>
             <a class="navbarButton" href="index.html">Home</a>
@@ -22,13 +22,12 @@
             <a class="navbarButton" href="Reservation.jsp">Reservations</a>
             <a class="navbarButton" href="LookUp.jsp">Look Up</a>
             <a class="navbarButton" href="LoyaltyPoints.jsp">Loyalty Points</a>
+            <a class="navbarButtonLogOut" href="LogOut.jsp">Log Out</a>
         </div>
 
 	</head>
 	<body>
 		<div id="container">
-
-        
         <%
         //get required values from parameters
         if(request.getMethod().equals("POST")){
@@ -47,7 +46,7 @@
                 	%>
                 	<div class="registerResponse">
         				<h3>That email is already in use</h3><br />
-        				<a href="Registration.jsp">Try Again</a>
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
         			</div>
         			<%
                 }
@@ -58,7 +57,7 @@
                 	%>	
                 	<div class="registerResponse">
                 		<h3>Congratulations<%=" " + user[0] + " " + user[1] + " "%> your account was created successfully!</h3><br />
-                		<a href="Login.jsp">Login</a>
+                		<a class="highlight" href="Login.jsp">Login</a>
                 	</div>
                 	<% 
                 	}
@@ -68,37 +67,35 @@
         			%>
         			<div class="registerResponse">
         				<h3>Oops! Something went wrong.</h3><br />
-        				<a href="Registration.jsp">Try Again</a>
+        				<a class="highlight" href="Registration.jsp">Try Again</a>
         			</div>
         			<%
                 }
         	}
-        %>
-         
-        <% 
         	if(request.getMethod().equals("GET")){
         %>
 
         <form class="randl" method='post' action='Registration.jsp'>   
                 <h1 class="formHeading">Register</h1> <hr /><br />
                 
-                    <p> 
-                        First Name:
-                       <input class="formInput" name="fName" type="text" min="0" maxlength="15" required="required"> 
-                    </p>
-                    <p> 
-                        Last Name:
-                       <input class="formInput" name="lName" type="text" min="0" maxlength="15" required="required"> 
-                    </p>
-                    <p> 
-                        Email: 
-                       <input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> 
-                    </p>
-                    <p> 
-                        Password: 
-                       <input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> 
-                    </p>
-         
+                	<table>
+                		<tr>
+                			<td>First Name:</td>
+                			<td><input class="formInput" name="fName" type="text" min="0" maxlength="15" required="required"> </td>
+                		</tr>
+                		<tr>
+                			<td>Last Name:</td>
+                			<td><input class="formInput" name="lName" type="text" min="0" maxlength="15" required="required"> </td>
+                		</tr>
+                   		<tr>
+                			<td>Email:</td>
+                			<td><input class="formInput" name="email" type="text" min="0" maxlength="30" required="required"> </td>
+                		</tr>
+                		<tr>
+                			<td>Password:</td>
+                			<td><input class="formInput" name="password" type="password" min="0" maxlength="20" required="required"> </td>
+                		</tr>
+                    </table>
             	<div class="center">
                 	<button type='submit'>Register</button><br />  
                 	<a class="highlight" href="Login.jsp">Login</a>
@@ -106,7 +103,7 @@
         	
     	</form>  
     	<%
-        	}
+        }
     	%>
 		</div>
 	</body>
