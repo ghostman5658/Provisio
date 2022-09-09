@@ -11,12 +11,13 @@ p {
 
 h1 {
     font-family: 'Quattrocento', Georgia, "Times New Roman", serif; /* replace with a different font */    
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 3.052em;
-    word-spacing: 0.5em;
-    margin: 0;
-
+    color: #4f3674;
+    text-shadow: 3px 3px #D6A800;
+    font-size: 6em;
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 3%;
+    text-align: center;
 }
 
 h2 {
@@ -27,6 +28,17 @@ h2 {
     margin: 0;
     padding-top: 15px;
 }
+
+h3{
+    font-family: 'Quattrocento', Georgia, "Times New Roman", serif; /* replace with a different font */    
+    font-weight: 500;
+    font-size: 2.441em;
+    word-spacing: 0.2em;
+    margin: 0;
+    padding-top: 10px;
+}
+
+
 
 * {
     box-sizing:border-box;
@@ -95,6 +107,27 @@ h2 {
     padding-top: .6%;
     padding-left: 1%;
     width: 3%;
+    position: relative;
+}
+
+.aboutusimg{
+    position: absolute;
+    margin-left: 2%;
+    border-radius: 10px;
+    width: 50%;
+}
+
+h4{
+    position: relative;
+    font-size: 3em;
+    margin-left: 4%;
+    margin-top: 25%;
+    width: 40%;
+}
+
+dl{
+    margin-left: 4%;
+    width: 40%;
 }
 
 .dot {
@@ -159,6 +192,17 @@ h2 {
     width: 29%; 
     margin: 2%; 
     padding: 1%;
+    background-color: #4f3674; 
+    color: white;
+    border-radius: 15px;
+}
+
+.box {
+    float: left; 
+    width: 40%; 
+    margin-top: 1%; 
+    margin-left: 3%;
+    padding: 3%;
     background-color: #4f3674; 
     color: white;
     border-radius: 15px;
