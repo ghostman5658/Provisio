@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="provisio.beans.LoginBean"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,99 +24,81 @@
 	</head>
 	<body>
         <%
-            if(request.getMethod().equals("POST")){
-                try{
-                    LoginBean newUser = new LoginBean();
-                    String email = request.getParameter("email"); 
-                    String password = request.getParameter("password"); 
-                    String available = newUser.checkLogin(email, password);
-                    
-                    if (session.getAttribute("sessionID") == null) {
-                        %>
-                            <h1>You are not logged in.  Please log in to continue.</h1>
-                            <a class="highlight" href="Login.jsp">Login</a>
-                        <%
-                    }
-                    else {
-                        %>
-                            <div width="98%">
-                                <form class="Reservation" method='post' action='ReservationConfirm.jsp'>   
-                                    <h1 class="formHeading">Reservation Options</h1> <hr /><br />
-                                        <fieldset>
-                                            <legend>Reservation Details</legend>
-                                            <div class="boxes">
-                                                <p>
-                                                    <label>Destination<br />
-                                                        <select name="City">
-                                                            <option value="Omaha">Omaha</option>
-                                                            <option value="Denver">Denver</option>
-                                                            <option value="LosAngeles">Los Angeles</option>
-                                                        </select>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>Room Size<br />
-                                                        <select name="RoomSize">
-                                                            <option value="Queen">One Queen Bed</option>
-                                                            <option value="Double">Two Twin Beds</option>
-                                                            <option value="King">One King Bed</option>
-                                                            <option value="TwoQueen">Two Queen Beds</option>
-                                                        </select>
-                                                    </label>
-                                                </p>
-                                                <p>
-                                                    <label>Number of Guests<br />
-                                                        <select name="Guests">
-                                                            <option value=1>1</option>
-                                                            <option value=2>2</option>
-                                                            <option value=3>3</option>
-                                                            <option value=4>4</option>
-                                                            <option value=5>5</option>
-                                                        </select>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="boxes">
-                                                <p>
-                                                    <label>Amenities<br />
-                                                        <input type="checkbox" id="Wifi" name="Wifi" value="Wifi">
-                                                        <label for="vehicle1"> Purchase Wi-Fi for a $12.99 one time fee?</label><br>
-                                                        <input type="checkbox" id="Breakfast" name="Breakfast" value="Breakfast">
-                                                        <label for="vehicle2"> Purchase Breakfast for $8.99 per person per night?</label><br>
-                                                        <input type="checkbox" id="Parking" name="Parking" value="Parking">
-                                                        <label for="vehicle3"> Purchase Parking for $19.99 per night?</label>
-                                                        </select>
-                                                    </label>
-                                                </p>
-                                            </div>
-                                            <div class="boxes">
-                                                <p>
-                                                    <label>Check-in Date:<input type="date" name="Checkin"></label>
-                                                </p>
-                                                <p>
-                                                    <label>Check-out Date:<input type="date" name="CheckOut"></label>
-                                                </p>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-                                    <div class="center">
-                                        <button type='submit'>Reserve</button><br />
-                                    </div>
-                                </form>  
-                            </div>
-                    <%
-                    }
-                }
-                catch(Exception e){
-                    e.printStackTrace(new java.io.PrintWriter(out));
-                    %>
-                    <div class="registerResponse">
-                        <h3>Oops! Something went wrong.</h3><br />
-                        <a class="highlight" href="Registration.jsp">Try Again</a>
-                    </div>
-                    <%
-                }
-            }
+        if (session.getAttribute("sessionID") == null) {
+            %>
+                <h1>You are not logged in.  Please log in to continue.</h1>
+                <a class="highlight" href="Login.jsp">Login</a>
+            <%
+        }
+        else {
+            %>
+                <div width="98%">
+                    <form class="Reservation" method='post' action='ReservationConfirm.jsp'>   
+                        <h1 class="formHeading">Reservation Options</h1> <hr /><br />
+                            <fieldset>
+                                <legend>Reservation Details</legend>
+                                <div class="boxes">
+                                    <p>
+                                        <label>Destination<br />
+                                            <select name="City">
+                                                <option value="Omaha">Omaha</option>
+                                                <option value="Denver">Denver</option>
+                                                <option value="LosAngeles">Los Angeles</option>
+                                            </select>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>Room Size<br />
+                                              <select name="RoomSize">
+                                                <option value="Queen">One Queen Bed</option>
+                                                <option value="Double">Two Twin Beds</option>
+                                                <option value="King">One King Bed</option>
+                                                <option value="TwoQueen">Two Queen Beds</option>
+                                            </select>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>Number of Guests<br />
+                                            <select name="Guests">
+                                                <option value=1>1</option>
+                                                <option value=2>2</option>
+                                                <option value=3>3</option>
+                                                <option value=4>4</option>
+                                                <option value=5>5</option>
+                                            </select>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="boxes">
+                                    <p>
+                                        <label>Amenities<br />
+                                            <input type="checkbox" id="Wifi" name="Wifi" value="Wifi">
+                                            <label for="vehicle1"> Purchase Wi-Fi for a $12.99 one time fee?</label><br>
+                                            <input type="checkbox" id="Breakfast" name="Breakfast" value="Breakfast">
+                                            <label for="vehicle2"> Purchase Breakfast for $8.99 per person per night?</label><br>
+                                            <input type="checkbox" id="Parking" name="Parking" value="Parking">
+                                            <label for="vehicle3"> Purchase Parking for $19.99 per night?</label>
+                                            </select>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="boxes">
+                                    <p>
+                                        <label>Check-in Date:<input type="date" name="Checkin"></label>
+                                    </p>
+                                    <p>
+                                        <label>Check-out Date:<input type="date" name="CheckOut"></label>
+                                    </p>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="center">
+                            <button type='submit'>Reserve</button><br />
+                        </div>
+                    </form>  
+                </div>
+            <%
+        }
         %>
     </body>
 </html>
