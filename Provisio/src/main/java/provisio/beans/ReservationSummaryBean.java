@@ -34,6 +34,26 @@ public class ReservationSummaryBean {
 		
 		return totalDays;
 	}
+	
+	public double roomPrice(String roomName) {
+		double totalCost = 0;
+		double roomCost = 0;
+		
+		if(roomName == "Two Twin Beds"){
+			totalCost= roomCost + 110.00;
+		}
+		else if(roomName == "One Queen Bed"){
+			totalCost= roomCost + 125.00;
+		}
+		else if(roomName == "Two Queen Beds"){
+			totalCost= roomCost + 150.00;
+		}
+		else {
+			totalCost= roomCost + 165.00;
+		}
+		
+		return totalCost;
+	}
 }
 
 // ****Archive Code****

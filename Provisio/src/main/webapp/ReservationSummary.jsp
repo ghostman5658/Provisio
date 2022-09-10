@@ -122,7 +122,7 @@
 				</div>
 				<div>
 					<p>
-						<label>Amenities:<br /> 
+						<label>Amenities<br /> 
 						<%
 						String wifi = request.getParameter("Wifi");
 						out.print("Wifi: ");
@@ -160,33 +160,68 @@
 			</fieldset>
 	</div>
 	<div width="90%">
-		<legend>Pricing</legend>
-		<p>
-			<label>Total Length of Stay<br>
-			<% 
-			// https://stackoverflow.com/questions/51213753/convert-string-to-date-jsp
-			String checkInDate = request.getParameter("Checkin");
-			String checkOutDate = request.getParameter("CheckOut");
-			
-		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//give format in which you are receiving the `String date_updated`
-		    
-		    java.util.Date inDate = sdf.parse(checkInDate);
-		    java.util.Date outDate = sdf.parse(checkOutDate);
-		    //java.sql.Date sqlDate_updated = new java.sql.Date(date.getTime());
-		    //ps.setDate(11, sqlDate_updated); 
-		    
-			// https://beginnersbook.com/2013/04/number-of-days-calculation-between-two-dates/
-			//Date totalStay = summary.dayLength(inDate, outDate);
-			long difference = outDate.getTime() - inDate.getTime();
-			float daysBetween = (difference / (1000*60*60*24));
-			
-			int totalDays = (int) daysBetween;
-			
-			out.println(totalDays + " Night");
-			%>
-			</label>
-			
-		</p>
+		<fieldset>
+			<legend>Total Length of Stay</legend>
+			<p>
+				<% 
+				// https://stackoverflow.com/questions/51213753/convert-string-to-date-jsp
+				String checkInDate = request.getParameter("Checkin");
+				String checkOutDate = request.getParameter("CheckOut");
+				
+			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//give format in which you are receiving the `String date_updated`
+			    
+			    java.util.Date inDate = sdf.parse(checkInDate);
+			    java.util.Date outDate = sdf.parse(checkOutDate);
+			    //java.sql.Date sqlDate_updated = new java.sql.Date(date.getTime());
+			    //ps.setDate(11, sqlDate_updated); 
+			    
+				// https://beginnersbook.com/2013/04/number-of-days-calculation-between-two-dates/
+				//Date totalStay = summary.dayLength(inDate, outDate);
+				long difference = outDate.getTime() - inDate.getTime();
+				float daysBetween = (difference / (1000*60*60*24));
+				
+				// Remove decimal
+				// https://www.codegrepper.com/code-examples/typescript/remove+decimal+from+double+java
+				int totalDays = (int) daysBetween;
+				
+				out.println(totalDays + " Night");
+				%>							
+			</p>		
+		</fieldset>
+	</div>
+	<div width="90%">
+		<fieldset>
+			<legend>Price Summary</legend>
+			<p>
+				<label>
+					Room Cost:
+				<% 
+				String roomName = request.getParameter("RoomSize");
+				String roomCheck = roomName.toString();
+				out.print(roomName);
+				%>
+				
+				<%
+				double roomPrice = summary.roomPrice("roomCheck");
+				out.print("$" + roomPrice);
+				%>			
+					
+				</label>
+				<br>
+			</p>
+			<p>
+				<label>
+					Amenities Cost:
+					
+				</label>
+				<br>
+			</p>
+			<p>
+				<label>
+					14.03% TAX: $169.90
+				</label>
+			</p>
+		</fieldset>
 	</div>
 	<div class="center">
 		<button type='submit'>Confirm</button>

@@ -41,19 +41,19 @@
                                     <p>
                                         <label>Destination<br />
                                             <select name="City">
-                                                <option value="Omaha">Omaha</option>
                                                 <option value="Denver">Denver</option>
                                                 <option value="Los Angeles">Los Angeles</option>
+                                                <option value="Omaha">Omaha</option>
                                             </select>
                                         </label>
                                     </p>
                                     <p>
                                         <label>Room Size<br />
                                               <select name="RoomSize">
-                                                <option value="One Queen Bed">One Queen Bed</option>
-                                                <option value="Two Twin Beds">Two Twin Beds</option>
-                                                <option value="One King Bed">One King Bed</option>
-                                                <option value="Two Queen Beds">Two Queen Beds</option>
+                                                <option value="Two Twin Beds">$110.00 - Two Twin Beds</option>
+                                                <option value="One Queen Bed">$125.00 - One Queen Bed</option>
+                                                <option value="Two Queen Beds">$150.00 - Two Queen Beds</option>
+                                                <option value="One King Bed">$165.00 - One King Bed</option>
                                             </select>
                                         </label>
                                     </p>
