@@ -50,10 +50,10 @@
                                     <p>
                                         <label>Room Size<br />
                                               <select name="RoomSize">
-                                                <option value="Queen">One Queen Bed</option>
-                                                <option value="Double">Two Twin Beds</option>
-                                                <option value="King">One King Bed</option>
-                                                <option value="Two Queen">Two Queen Beds</option>
+                                                <option value="One Queen Bed">One Queen Bed</option>
+                                                <option value="Two Twin Beds">Two Twin Beds</option>
+                                                <option value="One King Bed">One King Bed</option>
+                                                <option value="Two Queen Beds">Two Queen Beds</option>
                                             </select>
                                         </label>
                                     </p>
