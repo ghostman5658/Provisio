@@ -1,8 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.io.*,java.util.*, javax.servlet.*" %>
-<%@ page import="java.text.SimpleDateFormat" %>
+
+<%-- ****Bean**** --%>
 <%-- <%@ page import="provisio.beans.ReservationSummaryBean"%> --%>
+<%@ page import="provisio.beans.ReservationSummaryBean"%>
+
+<%-- ****Calendar and Dates**** --%>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@page import="java.util.concurrent.TimeUnit"%>
+<%@page import="java.util.Calendar" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,18 +45,58 @@
 	} else {
 	%>
 	<div width="98%">
-		<form class="Reservation" method='post' action='Reservation.jsp'>
+		<form class="ReservationSummary" method='GET' action='Reservation.jsp'>
 			<h1 class="formHeading">Reservation Summary</h1>
 			<hr />
 			<br />
 			<fieldset>
-				<legend>Summary</legend>
-				<div class="boxes">
+			<%
+			ReservationSummaryBean summary = new ReservationSummaryBean();
+			%>
+				<legend>Your Booking Details</legend>
+				<div>
+					<p>
+						<label>Booking Date:
+						<% 
+						// Gets the current booking date
+						// https://www.tutorialspoint.com/how-to-format-date-in-jsp
+						// Date must be formated with correct upper and lower case
+						Date dateToday = new Date();
+						SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	      				out.println(df.format(dateToday));
+						%>
+						</label>
+					</p>
+					<p>
+						<label>Check-in Date:
+						<% 
+						String showCheckin = request.getParameter("Checkin");
+						out.print(showCheckin);
+						%>
+						</label>
+					</p>
+					<p>
+						<label>Check-out Date:
+						<% 
+						String showCheckout = request.getParameter("CheckOut");
+						out.print(showCheckout);
+						%></label>
+					</p>
+				</div>
+				<div>
 					<p>
 						<label>Destination: 
 						<%
 						String city = request.getParameter("City");
+						//String locateCity = summary.setCity(city);
+						//out.print(locateCity);
+						
 						out.print(city);
+						//if(city.toString() == "omaha") {
+							//out.print("Omaha, NE");	
+						//} else {
+							//out.println("Not Working");
+						//}
 						%> 
 						<br />
 						</label>
@@ -57,7 +105,7 @@
 						<label>Room Size: 
 						<%
 						String room = request.getParameter("RoomSize");
-						out.print(room);
+						out.print(room);			
 						%> 
 						<br />
 						</label>
@@ -72,7 +120,7 @@
 						</label>
 					</p>
 				</div>
-				<div class="boxes">
+				<div>
 					<p>
 						<label>Amenities:<br /> 
 						<%
@@ -108,39 +156,44 @@
 						</label>
 					</p>
 				</div>
-				<div class="boxes">
-					<p>
-						<label>Booking Date:
-						<% 
-						// Gets the current booking date
-						Date date = new Date();
-						SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
-         				out.print(df.format(date));
-						%>
-						</label>
-					</p>
-					<p>
-						<label>Check-in Date:
-						<% 
-						String checkin = request.getParameter("Checkin");
-						out.print(checkin);
-						%>
-						</label>
-					</p>
-					<p>
-						<label>Check-out Date:
-						<% 
-						String checkout = request.getParameter("CheckOut");
-						out.print(checkout);
-						%></label>
-					</p>
-				</div>
+				
 			</fieldset>
+	</div>
+	<div width="90%">
+		<legend>Pricing</legend>
+		<p>
+			<label>Total Length of Stay<br>
+			<% 
+			// https://stackoverflow.com/questions/51213753/convert-string-to-date-jsp
+			String checkInDate = request.getParameter("Checkin");
+			String checkOutDate = request.getParameter("CheckOut");
+			
+		    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//give format in which you are receiving the `String date_updated`
+		    
+		    java.util.Date inDate = sdf.parse(checkInDate);
+		    java.util.Date outDate = sdf.parse(checkOutDate);
+		    //java.sql.Date sqlDate_updated = new java.sql.Date(date.getTime());
+		    //ps.setDate(11, sqlDate_updated); 
+		    
+			// https://beginnersbook.com/2013/04/number-of-days-calculation-between-two-dates/
+			//Date totalStay = summary.dayLength(inDate, outDate);
+			long difference = outDate.getTime() - inDate.getTime();
+			float daysBetween = (difference / (1000*60*60*24));
+			
+			int totalDays = (int) daysBetween;
+			
+			out.println(totalDays + " Night");
+			%>
+			</label>
+			
+		</p>
 	</div>
 	<div class="center">
 		<button type='submit'>Confirm</button>
+		<%-- 
 		<input type="submit" name="cancel" value="Cancel" />
-		<%-- <input type="submit" name="Cancel" value="cancel" onclick="document.history.back();">--%>
+		--%>
+		<input type="submit" name="Cancel" value="cancel" onClick="document.history.back();">
 		<br />
 	</div>
 	</form>
