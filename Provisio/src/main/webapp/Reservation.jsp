@@ -12,7 +12,7 @@
         	<img src="logo.png" class="navimg">
        		<div class="navtext">Provisio</div>
             <a class="navbarButton" href="index.html">Home</a>
-            <a class="navbarButton" href="AboutUs.jsp">About Us</a>
+            <a class="navbarButton" href="AboutUs.html">About Us</a>
             <a class="navbarButton" href="Locations.jsp">Locations</a>
             <a class="navbarButton" href="Registration.jsp">Register</a>
             <a class="navbarButton" href="Login.jsp">Login</a>
@@ -33,7 +33,7 @@
         else {
             %>
                 <div width="98%">
-                    <form class="Reservation" method='post' action='ReservationConfirm.jsp'>   
+                    <form class="Reservation" method='post' action='ReservationSummary.jsp'>   
                         <h1 class="formHeading">Reservation Options</h1> <hr /><br />
                             <fieldset>
                                 <legend>Reservation Details</legend>
@@ -43,7 +43,7 @@
                                             <select name="City">
                                                 <option value="Omaha">Omaha</option>
                                                 <option value="Denver">Denver</option>
-                                                <option value="LosAngeles">Los Angeles</option>
+                                                <option value="Los Angeles">Los Angeles</option>
                                             </select>
                                         </label>
                                     </p>
@@ -53,7 +53,7 @@
                                                 <option value="Queen">One Queen Bed</option>
                                                 <option value="Double">Two Twin Beds</option>
                                                 <option value="King">One King Bed</option>
-                                                <option value="TwoQueen">Two Queen Beds</option>
+                                                <option value="Two Queen">Two Queen Beds</option>
                                             </select>
                                         </label>
                                     </p>
