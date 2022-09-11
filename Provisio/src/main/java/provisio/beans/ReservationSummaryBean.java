@@ -137,6 +137,50 @@ public class ReservationSummaryBean {
 		return totalCost;
 	}
 	
+	public void setReservation(Date bookDate, Date arrive, Date depart, int points, int guest, int hotel, String email, int room) {
+		// Create variables for database connection
+  		String dbUser = "root";
+  		String dbPass = "password";
+  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
+  		
+  		// Tries to insert data into the table 
+    	Connection con = null;
+        Statement stmt = null;
+            
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = dbURLandName + "?";
+                
+            con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+            stmt = con.createStatement();  
+            System.out.println("Connection Successful");
+        }
+        catch(Exception e){
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
+        }
+        
+      //Attempt to insert user data into "reservation" table
+        try{
+            stmt.execute("INSERT INTO reservation(BookingDate, ArrivalDate, DepartureDate, PointsEarned, NumberOfGuests, HotelId, Email, RoomId) VALUES ('"+ bookDate + "', '" + arrive + "', '" + depart + "', '" + points + "', '" + guest + "', '" + hotel + "', '" + email + "', '" + room + "')"); 
+            System.out.println();
+        }
+        catch(SQLException e){
+            System.out.println("Error inserting data");
+            e.printStackTrace();
+            
+        }
+        
+        try{
+            stmt.close();
+            con.close();
+        }
+        catch(SQLException e){
+            System.out.println("Connection close failed");
+            e.printStackTrace();
+        }
+	}
+	
 	//public String 
 }
 

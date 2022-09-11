@@ -36,6 +36,9 @@
 </head>
 
 <body>
+<%
+ReservationSummaryBean summary = new ReservationSummaryBean();
+%>
 	<%
 	if (session.getAttribute("sessionID") == null) {
 	%>
@@ -50,9 +53,6 @@
 			<hr />
 			<br />
 			<fieldset>
-			<%
-			ReservationSummaryBean summary = new ReservationSummaryBean();
-			%>
 				<legend>Your Booking Details</legend>
 				<div>
 					<p>
@@ -96,8 +96,8 @@
 					<p>
 						<label>Room Size: 
 						<%
-						String room = request.getParameter("RoomSize");
-						out.print(room);			
+						String roomSize = request.getParameter("RoomSize");
+						out.print(roomSize);			
 						%> 
 						<br />
 						</label>
@@ -105,8 +105,8 @@
 					<p>
 						<label>Number of Guests: 
 						<%
-						String guest = request.getParameter("Guests");
-						out.print(guest);
+						String guestNum = request.getParameter("Guests");
+						out.print(guestNum);
 						%>
 						<br />
 						</label>
@@ -199,6 +199,33 @@
 			</p>
 		</fieldset>
 	</div>
+	
+	<%
+	// To be inserted into the database
+	Date bookDate = dateToday;
+	
+	String inDate = request.getParameter("Checkin");
+	String outDate = request.getParameter("CheckOut");
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");    
+	Date arrive = sdf.parse(inDate);
+	Date depart = sdf.parse(outDate);	
+	
+	int points = 0;
+	
+	String guestCount = request.getParameter("Guests");
+	int guest = Integer.parseInt(request.getParameter("guestCount"));
+	
+	int hotel = 0;
+	String email = "";
+	int room = 1;
+	%>
+	
+	<%
+	// Insert into database
+	summary.setReservation(bookDate, arrive, depart, points, guest, hotel, email, room);
+	%>
+	
 	<div class="center">
 		<button type='submit'>Confirm</button>
 		<%-- 
