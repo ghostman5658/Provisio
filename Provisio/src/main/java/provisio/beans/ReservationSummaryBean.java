@@ -1,6 +1,5 @@
 package provisio.beans;
 
-import java.sql.Connection;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -64,7 +63,7 @@ public class ReservationSummaryBean {
 	}
 	
 	// Finds the selected room and returns the cost of the room
-	public double roomPrice(String roomName) {
+	public double roomPrice(String roomName) throws SQLException {
 		
 		// Create variables for database connection
   		String dbUser = "root";
@@ -74,6 +73,9 @@ public class ReservationSummaryBean {
   		// Tries to insert data into the table 
     	Connection con = null;
         Statement stmt = null;
+        ResultSet rs = null;
+        String roomCost = "";
+        Double totalCost = 0.0;
             
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -87,23 +89,50 @@ public class ReservationSummaryBean {
             System.out.println("Error connecting to the database.");
             e.printStackTrace();
         }
+        
+        //Attempt to retrieve user data from the table
+        try {
+        	rs = stmt.executeQuery("SELECT BasePrice FROM provisio.room WHERE Name = '" + roomName + "'");
+//        	rs = stmt.executeQuery("select * from provisio.room");
+            
+        	roomCost = rs.getString("BasePrice");
+//            roomCost = rs.getString(roomName);
+//        	totalCost = rs.getDouble("BasePrice");
+            
+            totalCost = Double.parseDouble(roomCost);
+        }
+        catch(SQLException e){
+			System.out.println("Error retrieving data");
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				rs.close();
+				stmt.close();
+				con.close();
+			}
+			catch(SQLException e){
+				System.out.println("Connection close failed");
+				e.printStackTrace();
+			}
+		}
   		
-		double totalCost = 0;
-		String nameRoom = "";
-		nameRoom = roomName.toString();
-		
-		if(nameRoom == "Two Twin Beds"){
-			totalCost += 110.00;
-		}
-		else if(nameRoom == "One Queen Bed"){
-			totalCost += 125.00;
-		}
-		else if(nameRoom == "Two Queen Beds"){
-			totalCost += 150.00;
-		}
-		else {
-			totalCost += 165.00;
-		}
+//		double totalCost = 0;
+//		String nameRoom = "";
+//		nameRoom = roomName.toString();
+//		
+//		if(nameRoom == "Two Twin Beds"){
+//			totalCost += 110.00;
+//		}
+//		else if(nameRoom == "One Queen Bed"){
+//			totalCost += 125.00;
+//		}
+//		else if(nameRoom == "Two Queen Beds"){
+//			totalCost += 150.00;
+//		}
+//		else {
+//			totalCost += 165.00;
+//		}
 		
 		return totalCost;
 	}

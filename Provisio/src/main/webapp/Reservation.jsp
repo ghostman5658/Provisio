@@ -50,10 +50,10 @@
                                     <p>
                                         <label>Room Size<br />
                                               <select name="RoomSize">
-                                                <option value="Two Twin Beds">$110.00 - Two Twin Beds</option>
-                                                <option value="One Queen Bed">$125.00 - One Queen Bed</option>
-                                                <option value="Two Queen Beds">$150.00 - Two Queen Beds</option>
-                                                <option value="One King Bed">$165.00 - One King Bed</option>
+                                                <option value="Double Room">$110.00 - Two Twin Beds</option>
+                                                <option value="Queen Room">$125.00 - One Queen Bed</option>
+                                                <option value="Double Queen Room">$150.00 - Two Queen Beds</option>
+                                                <option value="King Room">$165.00 - One King Bed</option>
                                             </select>
                                         </label>
                                     </p>

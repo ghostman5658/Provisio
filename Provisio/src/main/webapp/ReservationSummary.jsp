@@ -169,12 +169,11 @@
 					Room Cost:
 				<% 
 				String roomName = request.getParameter("RoomSize");
-				String roomCheck = roomName.toString();
+				//String roomCheck = roomName.toString();
 				out.print(roomName);
-				%>
-				
+				%>				
 				<%
-				double roomPrice = summary.roomPrice("roomCheck");
+				double roomPrice = summary.roomPrice(roomName);
 				out.print("$" + roomPrice);
 				%>			
 					
