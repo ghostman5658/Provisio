@@ -24,19 +24,7 @@ public class ReservationSummaryBean {
 		
 		return cityLocation;
 	}
-	
-	// Determines if the user selected an amenities for the hotel.
-	public String Amenities(String a) {
-		String extra = "";
-		
-		if(a == null){
-			extra = "No";
-		} else {
-			extra = "Yes";
-		}
-		
-		return extra;
-	}
+
 	
 	// Calculates the days between the two dates. 
 	public int dayLength(String checkin, String checkout) throws ParseException {
@@ -60,6 +48,61 @@ public class ReservationSummaryBean {
 		int days = (int) daysBetween;
 		
 		return days;
+	}	
+	
+	// Determines if the user selected an amenities for the hotel.
+	public String Amenities(String a) {
+		String extra = "";
+		
+		if(a == null){
+			extra = "No";
+		} else {
+			extra = "Yes";
+		}
+		
+		return extra;
+	}
+	
+	public double amenitiesPrice(String wifi, String breakfast, String parking) {
+		
+		// Create variables for database connection
+  		String dbUser = "root";
+  		String dbPass = "password";
+  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
+  		
+  		// Tries to insert data into the table 
+    	Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+            
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = dbURLandName + "?";
+                
+            con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+            stmt = con.createStatement();  
+            System.out.println("Connection Successful");
+        }
+        catch(Exception e){
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
+        }
+		
+		double amenitiesCost = 0.0;
+		
+		if(wifi == null) {
+			// Add the price to amenitiesCost
+		}
+		
+		if(breakfast == null) {
+			// Add the price to amenitiesCost
+		}
+		
+		if(parking == null) {
+			// Add the price to amenitiesCost
+		}
+		
+		return amenitiesCost;
 	}
 	
 	// Finds the selected room and returns the cost of the room
@@ -137,7 +180,7 @@ public class ReservationSummaryBean {
 		return totalCost;
 	}
 	
-	public void setReservation(Date bookDate, Date arrive, Date depart, int points, int guest, int hotel, String email, int room) {
+	public void setReservation(Date bookDate, Date arrive, Date depart, int points, int guest) {
 		// Create variables for database connection
   		String dbUser = "root";
   		String dbPass = "password";
@@ -146,6 +189,11 @@ public class ReservationSummaryBean {
   		// Tries to insert data into the table 
     	Connection con = null;
         Statement stmt = null;
+        
+        // FK for the tables of "reservation"
+        int hotel = 0;
+        String email = "";
+        int room = 0;
             
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -180,8 +228,6 @@ public class ReservationSummaryBean {
             e.printStackTrace();
         }
 	}
-	
-	//public String 
 }
 
 // ****Archive Code****
