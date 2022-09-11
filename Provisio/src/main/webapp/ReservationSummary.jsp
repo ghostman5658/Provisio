@@ -87,16 +87,8 @@
 					<p>
 						<label>Destination: 
 						<%
-						String city = request.getParameter("City");
-						//String locateCity = summary.setCity(city);
-						//out.print(locateCity);
-						
+						String city = request.getParameter("City");												
 						out.print(city);
-						//if(city.toString() == "omaha") {
-							//out.print("Omaha, NE");	
-						//} else {
-							//out.println("Not Working");
-						//}
 						%> 
 						<br />
 						</label>
@@ -126,31 +118,25 @@
 						<%
 						String wifi = request.getParameter("Wifi");
 						out.print("Wifi: ");
-						if(wifi == null) {
-							out.print("No");
-						} else {
-							out.print("Yes");							
-						}						
+						
+						String amenWifi = summary.Amenities(wifi);
+						out.print(amenWifi);					
 						%>
 						<br /> 
 						<%
 						String breakfast = request.getParameter("Breakfast");
 						out.print("Breakfast: ");
-						if(breakfast == null) {
-							out.print("No");
-						} else {
-							out.print("Yes");							
-						}						
+						
+						String amenBreakfast = summary.Amenities(breakfast);
+						out.print(amenBreakfast);
 						%>
 						<br />
 						<%
 						String parking = request.getParameter("Parking");
 						out.print("Parking: ");
-						if(parking == null) {
-							out.print("No");
-						} else {
-							out.print("Yes");							
-						}						
+						
+						String amenParking = summary.Amenities(parking);
+						out.print(amenParking);					
 						%>
 						<br />
 						</label>
@@ -168,22 +154,8 @@
 				String checkInDate = request.getParameter("Checkin");
 				String checkOutDate = request.getParameter("CheckOut");
 				
-			    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//give format in which you are receiving the `String date_updated`
-			    
-			    java.util.Date inDate = sdf.parse(checkInDate);
-			    java.util.Date outDate = sdf.parse(checkOutDate);
-			    //java.sql.Date sqlDate_updated = new java.sql.Date(date.getTime());
-			    //ps.setDate(11, sqlDate_updated); 
-			    
-				// https://beginnersbook.com/2013/04/number-of-days-calculation-between-two-dates/
-				//Date totalStay = summary.dayLength(inDate, outDate);
-				long difference = outDate.getTime() - inDate.getTime();
-				float daysBetween = (difference / (1000*60*60*24));
-				
-				// Remove decimal
-				// https://www.codegrepper.com/code-examples/typescript/remove+decimal+from+double+java
-				int totalDays = (int) daysBetween;
-				
+				int totalDays = summary.dayLength(checkInDate, checkOutDate);
+								
 				out.println(totalDays + " Night");
 				%>							
 			</p>		
@@ -218,7 +190,12 @@
 			</p>
 			<p>
 				<label>
-					14.03% TAX: $169.90
+					TAX: $20.90
+				</label>
+			</p>
+			<p>
+				<label>
+					Total Cost: 
 				</label>
 			</p>
 		</fieldset>
