@@ -183,6 +183,12 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			<p>
 				<label>
 					Amenities Cost:
+					<%
+					// **If amenities is selected, price will be true and added to the total cost**
+					double amenitiesPrice = 0.0;
+					//amenitiesPrice = summary.amenitiesPrice(wifi, breakfast, parking);
+					//out.print("$" + amenitiesPrice);
+					%>
 					
 				</label>
 				<br>
@@ -195,6 +201,13 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			<p>
 				<label>
 					Total Cost: 
+					<%
+					double grandTotal = 0.0;
+					double tax = 20.9;
+					grandTotal = roomPrice + amenitiesPrice + tax;
+					
+					out.print("$" + grandTotal);
+					%>
 				</label>
 			</p>
 		</fieldset>
@@ -207,6 +220,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 	String inDate = request.getParameter("Checkin");
 	String outDate = request.getParameter("CheckOut");
 	
+	// Convert type 'String' Date into a type 'Date'
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");    
 	Date arrive = sdf.parse(inDate);
 	Date depart = sdf.parse(outDate);	
@@ -214,16 +228,11 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 	int points = 0;
 	
 	String guestCount = request.getParameter("Guests");
-	int guest = Integer.parseInt(request.getParameter("guestCount"));
-	
-	int hotel = 0;
-	String email = "";
-	int room = 1;
-	%>
-	
+	int guest = Integer.parseInt(guestCount);
+	%>	
 	<%
 	// Insert into database
-	summary.setReservation(bookDate, arrive, depart, points, guest, hotel, email, room);
+	// summary.setReservation(bookDate, arrive, depart, points, guest, email);
 	%>
 	
 	<div class="center">
