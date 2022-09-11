@@ -272,6 +272,18 @@ button {
     border-radius: 10px;
 }
 
+#cancel {
+    margin: center;
+    background-color: red;
+    color: white;
+    height: 35px;
+    width: 75px;
+    font-size: large;
+    cursor: pointer; 
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
 .response {
 	display:block;
 	margin-top: 10%;

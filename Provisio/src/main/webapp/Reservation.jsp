@@ -35,7 +35,7 @@
         else {
             %>
                 <div width="98%">
-                    <form class="Reservation" method='post' action='ReservationSummary.jsp'>   
+                    <form class="Reservation" method='GET' action='ReservationSummary.jsp'>   
                         <h1 class="formHeading">Reservation Options</h1> <hr /><br />
                             <fieldset>
                                 <legend>Reservation Details</legend>
