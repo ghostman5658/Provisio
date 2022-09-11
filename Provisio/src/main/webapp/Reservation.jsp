@@ -26,8 +26,10 @@
         <%
         if (session.getAttribute("sessionID") == null) {
             %>
-                <h1>You are not logged in.  Please log in to continue.</h1>
-                <a class="highlight" href="Login.jsp">Login</a>
+                <div class="response">
+        			<h3 class="responseHeader">You are not logged in. Please login to continue.</h3><br />
+        			<a class="highlight" href="Login.jsp">Login</a>
+        		</div>
             <%
         }
         else {
@@ -84,10 +86,10 @@
                                 </div>
                                 <div class="boxes">
                                     <p>
-                                        <label>Check-in Date:<input type="date" name="Checkin"></label>
+                                        <label>Check-in Date:<input type="date" name="Checkin" required="required"></label>
                                     </p>
                                     <p>
-                                        <label>Check-out Date:<input type="date" name="CheckOut"></label>
+                                        <label>Check-out Date:<input type="date" name="CheckOut" required="required"></label>
                                     </p>
                                 </div>
                             </fieldset>
