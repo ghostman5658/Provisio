@@ -173,7 +173,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 				out.print(roomName);
 				%>				
 				<%
-				double roomPrice = summary.roomPrice(roomName);
+				double roomPrice = summary.roomPrice(city, roomName);
 				out.print("$" + roomPrice);
 				%>			
 					

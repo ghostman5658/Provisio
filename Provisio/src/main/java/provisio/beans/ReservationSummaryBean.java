@@ -63,6 +63,7 @@ public class ReservationSummaryBean {
 		return extra;
 	}
 	
+	// Amenities prices will be added if selected by the user
 	public double amenitiesPrice(String wifi, String breakfast, String parking) {
 		
 		// Create variables for database connection
@@ -106,7 +107,7 @@ public class ReservationSummaryBean {
 	}
 	
 	// Finds the selected room and returns the cost of the room
-	public double roomPrice(String roomName) throws SQLException {
+	public double roomPrice(String city, String roomName) throws SQLException {
 		
 		// Create variables for database connection
   		String dbUser = "root";
@@ -116,7 +117,12 @@ public class ReservationSummaryBean {
   		// Tries to insert data into the table 
     	Connection con = null;
         Statement stmt = null;
-        ResultSet rs = null;
+        
+        ResultSet rsCity = null;
+        ResultSet rsRoom = null;
+        
+        int cityId = 0;
+        int cityName = 0;
         String roomCost = "";
         Double totalCost = 0.0;
             
@@ -135,10 +141,17 @@ public class ReservationSummaryBean {
         
         //Attempt to retrieve user data from the table
         try {
-        	rs = stmt.executeQuery("SELECT BasePrice FROM provisio.room WHERE Name = '" + roomName + "'");
+        	// Finds the city hotel ID so that the room and room price can be determined
+        	rsCity = stmt.executeQuery("SELECT HotelId FROM provisio.hotel WHERE City = '" + city + "'");
+        	while(rsCity.next()) {
+        		cityId = rsCity.getInt("HotelId");
+        	}
+        	
+        	// Finds the price of the room according to the city hotel ID
+        	rsRoom = stmt.executeQuery("SELECT BasePrice FROM provisio.room WHERE Name = '" + roomName + "' AND '" + cityId + "'");
 //        	rs = stmt.executeQuery("select * from provisio.room");
             
-        	roomCost = rs.getString("BasePrice");
+        	roomCost = rsRoom.getString("BasePrice");
 //            roomCost = rs.getString(roomName);
 //        	totalCost = rs.getDouble("BasePrice");
             
@@ -150,7 +163,8 @@ public class ReservationSummaryBean {
 		}
 		finally {
 			try{
-				rs.close();
+				rsCity.close();
+				rsRoom.close();
 				stmt.close();
 				con.close();
 			}
