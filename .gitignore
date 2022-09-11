@@ -100,3 +100,6 @@ replay_pid*
 
 # *****Ignore 'Servers' Folder from 'Provisio\Servers' *****
 Servers/
+
+# Ignore temporary project files when opening from Eclipse
+.project

@@ -12,7 +12,7 @@
         	<img src="logo.png" class="navimg">
        		<div class="navtext">Provisio</div>
             <a class="navbarButton" href="index.html">Home</a>
-            <a class="navbarButton" href="AboutUs.jsp">About Us</a>
+            <a class="navbarButton" href="AboutUs.html">About Us</a>
             <a class="navbarButton" href="Locations.jsp">Locations</a>
             <a class="navbarButton" href="Registration.jsp">Register</a>
             <a class="navbarButton" href="Login.jsp">Login</a>
@@ -33,7 +33,7 @@
         else {
             %>
                 <div width="98%">
-                    <form class="Reservation" method='post' action='ReservationConfirm.jsp'>   
+                    <form class="Reservation" method='post' action='ReservationSummary.jsp'>   
                         <h1 class="formHeading">Reservation Options</h1> <hr /><br />
                             <fieldset>
                                 <legend>Reservation Details</legend>
@@ -41,19 +41,19 @@
                                     <p>
                                         <label>Destination<br />
                                             <select name="City">
-                                                <option value="Omaha">Omaha</option>
                                                 <option value="Denver">Denver</option>
-                                                <option value="LosAngeles">Los Angeles</option>
+                                                <option value="Los Angeles">Los Angeles</option>
+                                                <option value="Omaha">Omaha</option>
                                             </select>
                                         </label>
                                     </p>
                                     <p>
                                         <label>Room Size<br />
                                               <select name="RoomSize">
-                                                <option value="Queen">One Queen Bed</option>
-                                                <option value="Double">Two Twin Beds</option>
-                                                <option value="King">One King Bed</option>
-                                                <option value="TwoQueen">Two Queen Beds</option>
+                                                <option value="Double Room">$110.00 - Two Twin Beds</option>
+                                                <option value="Queen Room">$125.00 - One Queen Bed</option>
+                                                <option value="Double Queen Room">$150.00 - Two Queen Beds</option>
+                                                <option value="King Room">$165.00 - One King Bed</option>
                                             </select>
                                         </label>
                                     </p>
