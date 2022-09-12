@@ -239,9 +239,8 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 					<td><strong>Total Cost: </strong></td>
 					<td><strong>
 					<%
-					double grandTotal = 0.0;
 					double tax = 20.9;
-					grandTotal = roomPrice + amenitiesPrice + tax;
+					double grandTotal = summary.getGrandTotal(amenitiesPrice, roomPrice, tax);
 					session.setAttribute("grandTotal", grandTotal); 
 					out.print("$" + grandTotal);
 					%>		

@@ -179,7 +179,7 @@ public class ReservationSummaryBean {
 				e.printStackTrace();
 			}
 		}
-        round(amenitiesCost, 2);
+        amenitiesCost = round(amenitiesCost, 2);
 		return amenitiesCost;
 	}
 	
@@ -253,8 +253,14 @@ public class ReservationSummaryBean {
 				e.printStackTrace();
 			}
 		}
-        round(roomCost, 2);
+        roomCost = round(roomCost, 2);
 		return roomCost;
+	}
+	
+	public double getGrandTotal(double amenities, double room, double tax) {
+		double grandTotal = amenities + room + tax;
+		grandTotal = round(grandTotal, 2);
+		return grandTotal;
 	}
 	
 	// Finds the selected room and returns the cost of the room
