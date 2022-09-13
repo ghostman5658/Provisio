@@ -66,7 +66,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			int roomId = (Integer)session.getAttribute("roomId");
 		
 			summary.setReservation(bd, ad, dd, pointsEarned, guestNum, selectedAmenities, cost, hotelId, email, roomId);
-		
+			summary.setLoyaltyPoints(pointsEarned, email); 
 			int reservationId = summary.getReservationId(hotelId, email, roomId);
 	%>
 	<div class="response">

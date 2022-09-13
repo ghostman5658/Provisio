@@ -395,7 +395,7 @@ public class ReservationSummaryBean {
             e.printStackTrace();
         }
         
-      //Attempt to insert user data into "reservation" table
+        //Attempt to insert user data into "reservation" table and points into user table
         try{
             stmt.execute("INSERT INTO reservation(BookingDate, ArrivalDate, DepartureDate, PointsEarned, NumberOfGuests, SelectedAmenities, Cost, HotelId, Email, RoomId) VALUES ('"+ bookDate + "', '" + arrive + "', '" + depart + "', '" + points + "', '" + guest + "', '" + amenities + "', '" + cost + "', '" + hotelId + "', '" + email + "', '" + roomId + "')"); 
             System.out.println();
@@ -416,7 +416,56 @@ public class ReservationSummaryBean {
         }
 	}
 	
-	
+	public void setLoyaltyPoints(int points, String email) { 
+		// Create variables for database connection
+  		String dbUser = "root";
+  		String dbPass = "password";
+  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
+  		
+  		// Tries to insert data into the table 
+    	Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null; 
+        int currentLoyaltyPoints = 0;
+            
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = dbURLandName + "?";
+                
+            con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+            stmt = con.createStatement();  
+            System.out.println("Connection Successful");
+        }
+        catch(Exception e){
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
+        }
+        
+        //Attempt to insert user data into "reservation" table and points into user table
+        try{
+        	rs = stmt.executeQuery("SELECT LoyaltyPoints FROM user WHERE Email = '" + email + "'");
+		    while(rs.next()) {
+		    	currentLoyaltyPoints = rs.getInt("ReservationId");
+		    }
+		    int newLoyaltypoints = currentLoyaltyPoints + points;
+            stmt.execute("UPDATE user SET LoyaltyPoints = '" + newLoyaltypoints + "' WHERE Email = '" + email + "'"); 
+            System.out.println();  
+        }
+        catch(SQLException e){
+            System.out.println("Error inserting data");
+            e.printStackTrace();
+            
+        }
+        
+        try{
+            stmt.close();
+            con.close();
+        }
+        catch(SQLException e){
+            System.out.println("Connection close failed");
+            e.printStackTrace();
+        }
+	}
 	
 	public int getReservationId(int hotelId, String email, int roomId) throws SQLException {
 		
