@@ -445,7 +445,7 @@ public class ReservationSummaryBean {
         try{
         	rs = stmt.executeQuery("SELECT LoyaltyPoints FROM user WHERE Email = '" + email + "'");
 		    while(rs.next()) {
-		    	currentLoyaltyPoints = rs.getInt("ReservationId");
+		    	currentLoyaltyPoints = rs.getInt("LoyaltyPoints");
 		    }
 		    int newLoyaltypoints = currentLoyaltyPoints + points;
             stmt.execute("UPDATE user SET LoyaltyPoints = '" + newLoyaltypoints + "' WHERE Email = '" + email + "'"); 
@@ -458,6 +458,7 @@ public class ReservationSummaryBean {
         }
         
         try{
+        	rs.close();
             stmt.close();
             con.close();
         }
