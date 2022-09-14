@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Register</title>
+		<title>Provisio - Reservation</title>
     	<link href="provisio.css" type="text/css" rel="stylesheet"/>
     	<meta charset="UTF-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1.0">

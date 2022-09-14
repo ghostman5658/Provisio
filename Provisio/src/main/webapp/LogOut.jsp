@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>LogOut</title>
+<title>Provisio - LogOut</title>
 </head>
 <body>
 	<% 
