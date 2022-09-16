@@ -75,7 +75,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
         out.println("Congratulations you have successfully booked your room, your confirmation number is " +  reservationId);
 
         %> </h3><br />
-        <a class="highlight" href="index.html">Home Page</a>
+        <a class="highlight" href="index.html">Home Page</a> 
     </div>
 	<%
 		}
@@ -84,6 +84,12 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
             String checkOutDate = request.getParameter("CheckOut");
             int totalDays = summary.dayLength(checkInDate, checkOutDate);
     		int pointsEarned = summary.pointsEarned(totalDays);
+
+            Date holi1 = new SimpleDateFormat("yyyy-MM-dd").parse("2023-07-04");
+            Date holi2 = new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-24");
+            Date holi3 = new SimpleDateFormat("yyyy-MM-dd").parse("2022-12-31");
+            Date holiStart = new SimpleDateFormat("yyyy-MM-dd").parse(checkInDate);
+            Date holiEnd = new SimpleDateFormat("yyyy-MM-dd").parse(checkOutDate);
                 
             String city = request.getParameter("City");
             int hotelId = summary.getHotelId(city);
@@ -105,6 +111,8 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
             double roomPrice = summary.getRoomPrice(city, roomSize, totalDays);
 			double amenitiesPrice = summary.amenitiesPrice(amenWifi, amenBreakfast, amenParking, totalDays);
             double grandTotal = summary.getGrandTotal(amenitiesPrice, roomPrice, tax);
+            double finalTotal = grandTotal * 1.05;
+            double holidayTotal = grandTotal * 1.1;
                 
             if (totalDays <= 1){
                 %>
@@ -254,8 +262,22 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td><strong>Total Cost: </strong></td>
                                 <td><strong>
                                 <%
-                                session.setAttribute("grandTotal", grandTotal); 
-                                out.print("$" + grandTotal);
+                                    if (holi1.before(holiEnd) && holi1.after(holiStart)) {
+                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        out.print("$" + holidayTotal);
+                                    }
+                                    else if (holi2.before(holiEnd) && holi2.after(holiStart)){
+                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        out.print("$" + holidayTotal);
+                                    }
+                                    else if (holi3.before(holiEnd) && holi3.after(holiStart)){
+                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        out.print("$" + holidayTotal);
+                                    }
+                                    else {
+                                        session.setAttribute("finalTotal", finalTotal); 
+                                        out.print("$" + finalTotal);
+                                    }
                                 %>		
                                 </strong></td>
                             </tr>

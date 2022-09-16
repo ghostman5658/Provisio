@@ -86,7 +86,7 @@
                                 </div>
                                 <div class="boxes">
                                     <p>
-                                        <label>Check-in Date:<input id="CheckInField" type="date" min="1899-01-01" max="2024-01-01" name="CheckIn" required="required"></label>
+                                        <label>Check-in Date:<input id="CheckInField" type="date" min="1899-01-01" max="2023-12-01" name="CheckIn" required="required"></label>
                                     </p>
                                     <p>
                                         <label>Check-out Date:<input id="CheckOutField" type="date" name="CheckOut" required="required"></label>
