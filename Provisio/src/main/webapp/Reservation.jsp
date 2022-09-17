@@ -86,11 +86,31 @@
                                 </div>
                                 <div class="boxes">
                                     <p>
-                                        <label>Check-in Date:<input type="date" name="Checkin" required="required"></label>
+                                        <label>Check-in Date:<input id="CheckInField" type="date" min="1899-01-01" max="2023-12-01" name="CheckIn" required="required"></label>
                                     </p>
                                     <p>
-                                        <label>Check-out Date:<input type="date" name="CheckOut" required="required"></label>
+                                        <label>Check-out Date:<input id="CheckOutField" type="date" name="CheckOut" required="required"></label>
                                     </p>
+                                    <script>
+                                        var today = new Date();
+                                        var dd = today.getDate();
+                                        var ddd = today.getDate() + 1;
+                                        var mm = today.getMonth() + 1; //January is 0!
+                                        var yyyy = today.getFullYear();
+
+                                        if (dd < 10) {
+                                        dd = '0' + dd;
+                                        }
+
+                                        if (mm < 10) {
+                                        mm = '0' + mm;
+                                        } 
+                                                
+                                        today = yyyy + '-' + mm + '-' + dd;
+                                        nextDay = yyyy + '-' + mm + '-' + ddd;
+                                        document.getElementById("CheckInField").setAttribute("min", today);
+                                        document.getElementById("CheckOutField").setAttribute("min", nextDay);
+                                    </script>
                                 </div>
                             </fieldset>
                         </div>
