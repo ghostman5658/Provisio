@@ -263,19 +263,19 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td><strong>
                                 <%
                                     if (holi1.before(holiEnd) && holi1.after(holiStart)) {
-                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        session.setAttribute("grandTotal", holidayTotal);
                                         out.print("$" + holidayTotal);
                                     }
                                     else if (holi2.before(holiEnd) && holi2.after(holiStart)){
-                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        session.setAttribute("grandTotal", holidayTotal);
                                         out.print("$" + holidayTotal);
                                     }
                                     else if (holi3.before(holiEnd) && holi3.after(holiStart)){
-                                        session.setAttribute("holidayTotal", holidayTotal);
+                                        session.setAttribute("grandTotal", holidayTotal);
                                         out.print("$" + holidayTotal);
                                     }
                                     else {
-                                        session.setAttribute("finalTotal", finalTotal); 
+                                        session.setAttribute("grandTotal", finalTotal); 
                                         out.print("$" + finalTotal);
                                     }
                                 %>		
