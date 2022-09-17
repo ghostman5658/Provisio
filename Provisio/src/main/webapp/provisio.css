@@ -296,6 +296,13 @@ button {
 	font-size: 1.25em;
 }
 
+/* Styles for Locations Page */
+#locationimg {
+	margin-top: -90px;
+	text-align: center; 
+	transform: scale(0.85);	
+}
+
 /*
 color: #4f3674; purple
 color: #D6A800; gold
