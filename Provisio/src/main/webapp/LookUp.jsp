@@ -46,7 +46,7 @@
                 String email = session.getAttribute("sessionID");
 
                 while (int i = 0; i < 100; i++) {
-                    String[] res = summary.getReservation(email, i);
+                    ArrayList<> res = summary.getReservation(email, i);
                     %>
                     <p><%out.println(res);%></p>
                     <%
