@@ -87,39 +87,28 @@
                     double totalDays = summary.dayLength(aDate, dDate);
 
                     double amenCost = 0.0;
-                    double pCost = 0.0;
-                    double wCost = 0.0;
-                    double bCost = 0.0;
+                    double pCost = totalDays * 19.99;;
+                    double wCost = 12.99;
+                    double bCost = totalDays * 8.99;
                     double uCost = cost * 1.05;
                     double hCost = cost * 1.1;
 
                     if (selAmen.contains("wifi") && selAmen.contains("breakfast") && selAmen.contains("parking")) {
-                        pCost = totalDays * 19.99;
-                        wCost = 12.99;
-                        bCost = totalDays * 8.99;
                         amenCost = pCost + wCost + bCost;
                     }
                     else if (selAmen.contains("wifi") && selAmen.contains("breakfast") && !selAmen.contains("parking")) {
-                        wCost = 12.99;
-                        bCost = totalDays * 8.99;
                         amenCost = wCost + bCost;
                     }
                     else if (selAmen.contains("wifi") && !selAmen.contains("breakfast") && selAmen.contains("parking")) {
-                        pCost = totalDays * 19.99;
-                        wCost = 12.99;
                         amenCost = pCost + wCost;
                     }
                     else if (!selAmen.contains("wifi") && selAmen.contains("breakfast") && selAmen.contains("parking")) {
-                        pCost = totalDays * 19.99;
-                        bCost = totalDays * 8.99;
                         amenCost = pCost + bCost;
                     }
                     else if (!selAmen.contains("wifi") && !selAmen.contains("breakfast") && selAmen.contains("parking")) {
-                        pCost = totalDays * 19.99;
                         amenCost = pCost;
                     }
                     else if (!selAmen.contains("wifi") && selAmen.contains("breakfast") && !selAmen.contains("parking")) {
-                        bCost = totalDays * 8.99;
                         amenCost = bCost;
                     }
 
