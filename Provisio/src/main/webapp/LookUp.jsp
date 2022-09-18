@@ -29,8 +29,10 @@
         <%
         if (session.getAttribute("sessionID") == null) {
             %>
-            <h1>You are not logged in. Please log in to continue.</h1>
-            <a class="highlight" href="Login.jsp">Login</a>
+        <div class="response">
+        	<h3 class="responseHeader">You are not logged in. Please login to continue.</h3><br />
+        	<a class="highlight" href="Login.jsp">Login</a>
+    	</div>
             <%
         } 
         else {
