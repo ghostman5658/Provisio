@@ -11,7 +11,7 @@
         <img src="logo.png" class="navimg">
         <div class="navtext">Provisio</div>
         <a class="navbarButton" href="index.html">Home</a>
-        <a class="navbarButtonActive" href="AboutUs.html">About Us</a>
+        <a class="navbarButtonActive" href="AboutUs.jsp">About Us</a>
         <a class="navbarButton" href="Locations.jsp">Locations</a>
         <a class="navbarButton" href="Registration.jsp">Register</a>
         <a class="navbarButton" href="Login.jsp">Login</a>
@@ -22,8 +22,21 @@
     </div>
 </head>
     <body>
+  
+  	<%
+        if(request.getMethod().equals("POST")){ 
+        	String user = request.getParameter("name");
+        	%>
+    		<div class="response">
+				<h3 class="responseHeader">Thank you <%=user %> for your submission. Someone will contact you shortly.</h3><br />
+				<a class="highlight" href="index.html">Home</a>
+			</div>
+			<%
+	}
+        else {
+	%>
     <h1> About Us </h1>
-    <div width="98%">
+    <div class="aboutUs" width="98%">
         <div class="box">
             <h3>Lorem Ipsum 1</h3>
             <br>
@@ -38,37 +51,38 @@
                 senectus et netus et. Ullamcorper velit sed ullamcorper morbi tincidunt. Viverra aliquet eget sit amet tellus.
             </p>
         </div>
-    </div>
-  
+   
+  	<div>
     <img src="aboutusimg.png" style="width:50%" class="aboutusimg"><br />
-    <form class="contactForm">
-		<h1 class="contactHeading">Contact Us</h1><br /> 
+    </div>
+    </div>
+    <form class="contactForm" method='POST' action='AboutUs.jsp'>
+		<h1 class="formHeading">Contact Us</h1><br /> 
 		
 			<table>
 				<tr>
-					<td>Customer Service </td>
-					<td>555-555-5555</td>
-				</tr>
-				<tr>
-					<td>Billing</td>
-					<td>444-444-4444</td>
-				</tr>
-				<tr>
 					<td>Name: </td>
-					<td><input> </td>
+					<td><input name="name" type="text" min="1" maxlength="30" required="required"> </td>
 				</tr>
 				<tr>
 					<td>Email: </td>
-					<td><input> </td>
+					<td><input type="text" min="1" maxlength="30" required="required"> </td>
 				</tr>
 				<tr>
 					<td>Phone: </td>
-					<td><input> </td>
+					<td><input type="text" min="7" maxlength="15" required="required"> </td>
+				</tr>
+				<tr>
+					<td>Comments: </td>
+					<td><input id="comments"> </td>
 				</tr>
 			</table>
-			<div class="center2">
+			<div class="center">
                 	<button type='submit'>Submit</button><br />  
             </div>
 		</form>
+	<%
+        }
+	%>
 </body>
 </html>

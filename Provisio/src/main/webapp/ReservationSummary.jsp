@@ -24,7 +24,7 @@
 	<img src="logo.png" class="navimg">
 	<div class="navtext">Provisio</div>
 	<a class="navbarButton" href="index.html">Home</a> 
-    <a class="navbarButton" href="AboutUs.html">About Us</a> 
+    <a class="navbarButton" href="AboutUs.jsp">About Us</a> 
     <a class="navbarButton" href="Locations.jsp">Locations</a> 
     <a class="navbarButton" href="Registration.jsp">Register</a> 
     <a class="navbarButton" href="Login.jsp">Login</a> 
@@ -79,7 +79,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
         %> </h3><br />
         <a class="highlight" href="index.html">Home Page</a> 
     </div>
-	<%
+	<% 
 		}
 		else {
             String checkInDate = request.getParameter("CheckIn");

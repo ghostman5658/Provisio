@@ -110,10 +110,14 @@ h3{
 }
 
 .aboutusimg{
-    position: absolute;
-    margin-left: 2%;
+    margin-right: 2%; 
+    float: right;
     border-radius: 10px;
     width: 50%;
+}
+
+.aboutUs {
+	display: inline-block;
 }
 
 h4{
@@ -238,16 +242,15 @@ dl{
 	
 }
 
-.contactHeading {
-	text-align: center;
-	font-size: 2em;
-	color: #4f3674;
-    text-shadow: 3px 3px #D6A800;
-}
-
 .contactForm {
-	margin-top: 20%;
-	width: 50%;
+	border: 2px solid black;
+	margin-left: 10%;
+	margin-top: 2%;
+	margin-bottom: 5%;
+	width: 500px;
+	padding:10px;
+	text-align: center;
+	border-radius: 10px;
 }
 
 .formInput {
@@ -258,16 +261,12 @@ td {
 	text-align: right;
 }
 
+#comments {
+	height: 75px;
+}
+
 .center {
     width: 100%;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
- 
-} 
-
-.center2 {
-    width: 50%;
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
