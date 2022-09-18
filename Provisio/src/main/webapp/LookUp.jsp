@@ -153,15 +153,15 @@
                             <td>Destination: </td>
                             <td>
                             <%
-                            if (hId == "1") {
-                                out.print("Omaha");
-                            }
-                            else if(hId == "2") {
-                                out.print("Denver");
-                            }
-                            else {
-                                out.print("Los Angeles");
-                            }
+                                if (hId.contains("1")) {
+                                    out.print("Omaha");
+                                }
+                                else if(hId.contains("2")) {
+                                    out.print("Denver");
+                                }
+                                else if (hId.contains("3")) {
+                                    out.print("Los Angeles");
+                                }
                             %> 
                             </td>
                         </tr>
@@ -169,42 +169,42 @@
                             <td>Room Size: </td>
                             <td>
                             <%
-                            if (rId == "1") {
-                                out.print("  Queen Room");
-                            }
-                            else if(rId == "2") {
-                                out.print("  Double Room");
-                            }
-                            else if(rId == "3") {
-                                out.print("  King Room");
-                            }
-                            else if(rId == "4") {
-                                out.print("  Double Queen Room");
-                            }
-                            else if(rId == "5") {
-                                out.print("  Queen Room");
-                            }
-                            else if(rId == "6") {
-                                out.print("  Double Room");
-                            }
-                            else if(rId == "7") {
-                                out.print("  King Room");
-                            }
-                            else if(rId == "8") {
-                                out.print("  Double Queen Room");
-                            }
-                            else if(rId == "9") {
-                                out.print("  Queen Room");
-                            }
-                            else if(rId == "10") {
-                                out.print("  Double Room");
-                            }
-                            else if(rId == "11") {
-                                out.print("  King Room");
-                            }
-                            else {
-                                out.print("  Double Queen Room");
-                            }
+                                if (rId.contains("1") && !rId.contains("10") && !rId.contains("11") && !rId.contains("12")) {
+                                    out.print("  Queen Room");
+                                }
+                                else if (rId.contains("2") && !rId.contains("12")) {
+                                    out.print("  Double Room");
+                                }
+                                else if (rId.contains("3")) {
+                                    out.print("  King Room");
+                                }
+                                else if (rId.contains("4")) {
+                                    out.print("  Double Queen Room");
+                                }
+                                else if (rId.contains("5")) {
+                                    out.print("  Queen Room");
+                                }
+                                else if (rId.contains("6")) {
+                                    out.print("  Double Room");
+                                }
+                                else if (rId.contains("7")) {
+                                    out.print("  King Room");
+                                }
+                                else if (rId.contains("8")) {
+                                    out.print("  Double Queen Room");
+                                }
+                                else if (rId.contains("9")) {
+                                    out.print("  Queen Room");
+                                }
+                                else if (rId.contains("10")) {
+                                    out.print("  Double Room");
+                                }
+                                else if (rId.contains("11")) {
+                                    out.print("  King Room");
+                                }
+                                else if (rId.contains("12")){
+                                    out.print("  Double Queen Room");
+                                }
                             %> 
                             </td>
                         </tr>
@@ -228,7 +228,7 @@
                             <td>Amenities Requested: </td>
                             <td>
                             <%
-                                out.print(selAmen);					
+                                out.print("  " + selAmen);					
                             %>
                             </td>
                         </tr>
@@ -302,4 +302,3 @@
     %>
     </body>
 </html>
-
