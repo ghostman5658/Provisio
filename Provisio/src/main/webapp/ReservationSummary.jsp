@@ -109,14 +109,16 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			String amenParking = summary.amenities(parking);
 			String selectedAmenities = summary.selectedAmenities(amenWifi, amenBreakfast, amenParking);
 				
-            double tax = 20.9;
             double roomPrice = summary.getRoomPrice(city, roomSize, totalDays);
 			double amenitiesPrice = summary.amenitiesPrice(amenWifi, amenBreakfast, amenParking, totalDays);
+			double tax = summary.getTax(amenitiesPrice, roomPrice); 
             double grandTotal = summary.getGrandTotal(amenitiesPrice, roomPrice, tax);
-            double finalTotal = grandTotal * 1.05;
-            double holidayTotal = grandTotal * 1.1;
+            double finalTotal = summary.addFivePercent(grandTotal); 
+            summary.round(finalTotal, 2);
+            double holidayTotal = summary.addFivePercent(finalTotal); 
+            summary.round(holidayTotal, 2); 
                 
-            if (totalDays <= 1){
+            if (totalDays < 1){
                 %>
                     <div class="response">
                         <h3 class="responseHeader">
@@ -258,7 +260,12 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                             </tr>
                             <tr>
                                 <td>Taxes: </td>
-                                <td>$20.90</td>
+                                <td>
+                                <%
+                                session.setAttribute("tax", tax);
+                                out.print("$" + tax);
+                                %>		
+                                </td>
                             </tr>
                             <tr>
                                 <td><strong>Total Cost: </strong></td>

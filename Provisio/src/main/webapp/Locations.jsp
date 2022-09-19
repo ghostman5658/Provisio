@@ -22,13 +22,13 @@
 </div>
 </head>
 <body>
-	<div class="locations">
+	<div>
 
-		<div class="mySlides fade">
+		<div>
 			<img id="locationimg" src="locations-map.png" alt="Map">
 		</div>
-	</div>
-	<div width="98%">
+	
+	<div>
 		<div class="boxes">
 			<img class="cities" src="Los_Angeles.jpg" style="width: 100%">
 			<h2 style="text-align: center;">Los Angeles, California</h2>
@@ -65,6 +65,7 @@
 				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 				culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
