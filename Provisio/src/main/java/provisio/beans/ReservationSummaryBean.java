@@ -53,7 +53,6 @@ public class ReservationSummaryBean {
 		return days;
 	}	
 	
-	
 	public int pointsEarned(int totalDays)  {
 		int pointsEarned = 150 * totalDays;
 		return pointsEarned;
@@ -183,14 +182,14 @@ public class ReservationSummaryBean {
 		return amenitiesCost;
 	}
 	
-	public static double round(double value, int places) {
-	    if (places < 0) throw new IllegalArgumentException();
-
-	    BigDecimal bd = BigDecimal.valueOf(value);
-	    bd = bd.setScale(places, RoundingMode.HALF_UP);
-	    return bd.doubleValue();
+	public double round(double value, int places) {
+	    
+	    BigDecimal bd = new BigDecimal(value).setScale(places, RoundingMode.HALF_UP);
+	    double val2 = bd.doubleValue();
+	    
+	    return val2;
 	}
-	
+
 	// Finds the selected room and returns the cost of the room
 	public double getRoomPrice(String city, String roomName, int totalDays) throws SQLException {
 		
@@ -257,10 +256,24 @@ public class ReservationSummaryBean {
 		return roomCost;
 	}
 	
+	public double getTax(double amenities, double room) {
+		double price = amenities + room;
+		double tax = price * .1;
+		tax = round(tax, 2);
+		return tax;
+	}
+	
+	public double addFivePercent(double price) {
+		double addedPrice = price * .05;
+		double newPrice = addedPrice + price;
+		double returnPrice = round(newPrice, 2);
+		return returnPrice;
+	}
+	
 	public double getGrandTotal(double amenities, double room, double tax) {
 		double grandTotal = amenities + room + tax;
-		grandTotal = round(grandTotal, 2);
-		return grandTotal;
+		double val2 = round(grandTotal, 2);
+		return val2;
 	}
 	
 	// Finds the selected room and returns the cost of the room

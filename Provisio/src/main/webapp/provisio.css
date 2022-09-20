@@ -200,7 +200,7 @@ dl{
 }
 
 .boxes {
-    float: left; 
+    float: left;
     width: 29%; 
     margin: 2%; 
     padding: 1%;
@@ -317,9 +317,12 @@ button {
 
 /* Styles for Locations Page */
 #locationimg {
+	border-radius: 10px;
 	margin-top: -90px;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center; 
-	transform: scale(0.85);	
+	transform: scale(0.65);	
 }
 
 /*
