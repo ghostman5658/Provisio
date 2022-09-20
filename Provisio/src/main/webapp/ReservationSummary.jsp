@@ -110,12 +110,12 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			String selectedAmenities = summary.selectedAmenities(amenWifi, amenBreakfast, amenParking);
 				
             double roomPrice = summary.getRoomPrice(city, roomSize, totalDays);
+            double adjustedRoomPrice = summary.addFivePercent(roomPrice);
 			double amenitiesPrice = summary.amenitiesPrice(amenWifi, amenBreakfast, amenParking, totalDays);
-			double tax = summary.getTax(amenitiesPrice, roomPrice); 
-            double grandTotal = summary.getGrandTotal(amenitiesPrice, roomPrice, tax);
-            double finalTotal = summary.addFivePercent(grandTotal); 
-            summary.round(finalTotal, 2);
-            double holidayTotal = summary.addFivePercent(finalTotal); 
+			double tax = summary.getTax(amenitiesPrice, adjustedRoomPrice); 
+            double grandTotal = summary.getGrandTotal(amenitiesPrice, adjustedRoomPrice, tax);
+            summary.round(grandTotal, 2);
+            double holidayTotal = summary.addFivePercent(grandTotal); 
             summary.round(holidayTotal, 2); 
                 
             if (totalDays < 1){
@@ -226,7 +226,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 </td>
                             </tr>
                             <tr>
-                                <td>Night: </td>
+                                <td>Nights: </td>
                                 <td>
                                 <% 			
                                 out.println(totalDays);
@@ -234,18 +234,10 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 </td>
                             </tr>
                             <tr>
-                                <td>Room: </td>
-                                <td>
-                                <% 
-                                out.print(roomSize);
-                                %>				
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>Room Cost: </td>
                                 <td>
                                 <%
-                                out.print("$" + roomPrice);
+                                out.print("$" + String.format("%.2f", adjustedRoomPrice)); 
                                 %>				
                                 </td>
                             </tr>
@@ -254,7 +246,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>
                                 <%
                                 // **If amenities is selected, price will be true and added to the total cost**
-                                out.print("$" + amenitiesPrice);
+                                out.print("$" + String.format("%.2f", amenitiesPrice)); 
                                 %>			
                                 </td>
                             </tr>
@@ -263,7 +255,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>
                                 <%
                                 session.setAttribute("tax", tax);
-                                out.print("$" + tax);
+                                out.print("$" + String.format("%.2f", tax)); 
                                 %>		
                                 </td>
                             </tr>
@@ -272,20 +264,20 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td><strong>
                                 <%
                                     if (holi1.before(holiEnd) && holi1.after(holiStart)) {
-                                        session.setAttribute("grandTotal", holidayTotal);
-                                        out.print("$" + holidayTotal);
+                                        session.setAttribute("grandTotal", holidayTotal); 
+                                        out.print("$" + String.format("%.2f", holidayTotal)); 
                                     }
                                     else if (holi2.before(holiEnd) && holi2.after(holiStart)){
                                         session.setAttribute("grandTotal", holidayTotal);
-                                        out.print("$" + holidayTotal);
+                                        out.print("$" + String.format("%.2f", holidayTotal));
                                     }
                                     else if (holi3.before(holiEnd) && holi3.after(holiStart)){
                                         session.setAttribute("grandTotal", holidayTotal);
-                                        out.print("$" + holidayTotal);
+                                        out.print("$" + String.format("%.2f", holidayTotal));
                                     }
                                     else {
-                                        session.setAttribute("grandTotal", finalTotal); 
-                                        out.print("$" + finalTotal);
+                                        session.setAttribute("grandTotal", grandTotal); 
+                                        out.print("$" + String.format("%.2f", grandTotal));
                                     }
                                 %>		
                                 </strong></td>
