@@ -318,7 +318,8 @@ button {
 /* Styles for Locations Page */
 #locationimg {
 	border-radius: 10px;
-	margin-top: -90px;
+	margin-top: -200px;
+	margin-bottom: -220px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center; 
