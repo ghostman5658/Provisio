@@ -33,37 +33,30 @@
 			<img class="cities" src="Los_Angeles.jpg" style="width: 100%">
 			<h2 style="text-align: center;">Los Angeles, California</h2>
 			<br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-				do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p> Often referred to by its initials L.A., is the largest city in the U.S. state of California. With a population of roughly 3.9 million as of 2020, it is the second largest city in the United States after New York City 
+                and one of the world's most populous megacities.<br /><br /> 
+                Los Angeles is known for its Mediterranean climate, ethnic and cultural diversity, Hollywood film industry, and sprawling metropolitan area. The city of Los Angeles lies
+                in a basin in Southern California, adjacent to the Pacific Ocean extending through the Santa Monica Mountains and into the San Fernando Valley.</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="Denver.jpg" style="width: 100%">
 			<h2 style="text-align: center;">Denver, Colorado</h2>
 			<br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-				do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p> A consolidated city and county, the capital, and most populous city of the U.S. state of Colorado. It is the 19th-most populous city in the United States and the fifth most populous state capital.  Denver is located in 
+                the Western United States, in the South Platte River Valley on the western edge of the High Plains just east of the Front Range of the Rocky Mountains.<br /><br />
+                Cherry Creek and the South Platte River, approximately 12 mi east of the foothills of the Rocky Mountains.  It is named after James W. Denver, a governor of the Kansas Territory. It's nickname is the Mile High City 
+                because its official elevation is exactly one mile above sea level.</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="Omaha.jpg" style="width: 100%">
 			<h2 style="text-align: center;">Omaha, Nebraska</h2>
 			<br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-				do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p> Omaha is the largest city in the U.S. state of Nebraska and the county seat of Douglas County. Omaha is in the Midwestern United States on the Missouri River, about 10 mi north of the mouth of the Platte River. It is the 
+                nation's 39th-largest city, with a population of 486,051.<br /><br />  
+                Omaha's pioneer period began in 1854, when the city was founded by speculators from neighboring Council Bluffs, Iowa. The city was founded along the Missouri River, 
+                and a crossing called Lone Tree Ferry earned the city its nickname, the "Gateway to the West". Omaha introduced this new West to the world in 1898, when it played host to the World's Fair, dubbed the Trans-Mississippi Exposition. <br /><br />
+                During the 19th century, Omaha's central location in the United States spurred the city to become an important national transportation hub. Throughout the rest of the 19th century, the transportation and jobbing sectors were 
+                important in the city, along with its railroads and breweries. In the 20th century, the Omaha Stockyards, once the world's largest, and its meatpacking plants gained international prominence.</p>
 		</div>
 	</div>
 	</div>

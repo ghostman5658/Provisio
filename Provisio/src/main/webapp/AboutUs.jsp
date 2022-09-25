@@ -22,7 +22,7 @@
     </div>
 </head>
     <body>
-  
+        <h1 class="abus"> About Us </h1>
   	<%
         if(request.getMethod().equals("POST")){ 
         	String user = request.getParameter("name");
@@ -35,31 +35,22 @@
 	}
         else {
 	%>
-    <h1> About Us </h1>
     <div class="aboutUs" width="98%">
         <div class="box">
-            <h3>Lorem Ipsum 1</h3>
-            <br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Felis eget nunc lobortis mattis. Feugiat pretium nibh ipsum consequat nisl vel. Morbi non arcu risus quis. 
-                Eu mi bibendum neque egestas congue. Elementum eu facilisis sed odio. Condimentum vitae sapien pellentesque habitant 
-                morbi tristique senectus et. Mollis aliquam ut porttitor leo a diam. Tempus imperdiet nulla malesuada pellentesque elit 
-                eget gravida cum. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada. Suspendisse ultrices gravida dictum 
-                fusce ut placerat. Viverra nibh cras pulvinar mattis nunc. Velit sed ullamcorper morbi tincidunt. 
-                Magna eget est lorem ipsum dolor sit amet consectetur. Vel pharetra vel turpis nunc. Orci dapibus ultrices in iaculis nunc 
-                sed augue lacus viverra. Aliquet bibendum enim facilisis gravida neque convallis. Pellentesque habitant morbi tristique 
-                senectus et netus et. Ullamcorper velit sed ullamcorper morbi tincidunt. Viverra aliquet eget sit amet tellus.
+            <h3>Who is Provisio?</h3>
+            <br />
+            <p> Provisio is an innovator in the field of hotel branding and management with a focus on the highest quality customer interactions and for delivering a winning strategy to ensure proactive operational change
+                while synergistically providing benefit tot he markets in which we maintain a presence.  
             </p>
         </div>
-   
-  	<div>
-    <img src="aboutusimg.png" style="width:50%" class="aboutusimg"><br />
-    </div>
+  	    <div>
+            <img src="aboutusimg.png" class="aboutusimg"><br />
+        </div>
     </div>
     <form class="contactForm" method='POST' action='AboutUs.jsp'>
 		<h1 class="formHeading">Contact Us</h1><br /> 
 		
-			<table>
+			<table div="contactForm">
 				<tr>
 					<td>Name: </td>
 					<td><input name="name" type="text" min="1" maxlength="30" required="required"> </td>
