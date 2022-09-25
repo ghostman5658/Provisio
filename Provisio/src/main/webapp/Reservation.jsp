@@ -33,6 +33,23 @@
             <%
         }
         else {
+        	if (session.getAttribute("reservationId") != null) {
+        		session.removeAttribute("reservationId");
+        		session.removeAttribute("bookingDate");
+        		session.removeAttribute("checkInDate");
+        		session.removeAttribute("checkOutDate");
+        		session.removeAttribute("hotelId");
+        		session.removeAttribute("roomId");
+        		session.removeAttribute("pointsEarned");
+        		session.removeAttribute("guestNum");
+        		session.removeAttribute("selectedAmenities");
+        		session.removeAttribute("totalDays");
+        		session.removeAttribute("roomPrice");
+        		session.removeAttribute("amenitiesPrice");
+        		session.removeAttribute("tax");
+        		session.removeAttribute("grandTotal");
+
+        	}
             %>
                 <div width="98%">
                     <form class="Reservation" method='GET' action='ReservationSummary.jsp'>   
@@ -52,10 +69,10 @@
                                     <p>
                                         <label>Room Size<br />
                                               <select name="RoomSize">
-                                                <option value="Double Room">$110.00 - Two Twin Beds</option>
-                                                <option value="Queen Room">$125.00 - One Queen Bed</option>
-                                                <option value="Double Queen Room">$150.00 - Two Queen Beds</option>
-                                                <option value="King Room">$165.00 - One King Bed</option>
+                                                <option value="Double Room">$115.50 - Two Twin Beds</option>
+                                                <option value="Queen Room">$131.25 - One Queen Bed</option>
+                                                <option value="Double Queen Room">$157.50 - Two Queen Beds</option>
+                                                <option value="King Room">$173.25 - One King Bed</option>
                                             </select>
                                         </label>
                                     </p>
@@ -113,7 +130,6 @@
                                     </script>
                                 </div>
                             </fieldset>
-                        </div>
                         <div class="center">
                             <button type='submit'>Reserve</button><br />
                         </div>

@@ -29,9 +29,6 @@
 
 <body>
 	<%
-	ReservationSummaryBean summary = new ReservationSummaryBean();
-	%>
-	<%
 	if (session.getAttribute("sessionID") == null) {
 	%>
 	<div class="response">
@@ -40,56 +37,90 @@
 		<br /> <a class="highlight" href="Login.jsp">Login</a>
 	</div>
 	<%
-	} else {
-
-
+	} 
+	else {
+		ReservationSummaryBean summary = new ReservationSummaryBean();
+		String email = (String)session.getAttribute("sessionID");
+		String [] res = summary.getReservation(email);
+		
+		int lp = summary.getLoyaltyPoints(email);
 	%>
-
-	<h1 class="formHeading">Your Loyalty Points</h1>
-	<hr />
-	<br />
-	<center>
+	<div class="randl">
+	<h1 class="formHeading">Your Loyalty Points</h1><hr /><br /> 
+		<table>
+			<tr>
+				<td>Email: </td>
+				<td>
+				<%out.print(email);%>
+				</td>
+			</tr>
+			<tr>
+				<td>Total Points: </td>
+				<td>
+				<%out.print(lp);%>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<%
+		if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
+	%>
+	
+	<div>
+		<div class="boxes">
+			<img class="cities" src="OmahaBaseball.jpg" alt="TD Ameritrade Park" style="width: 100%">
+			<h2 style="text-align: center;">TD Ameritrade Park</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="OmahaFootball.jpg" alt="Memorial Stadium" style="width: 100%">
+			<h2 style="text-align: center;">Memorial Stadium</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="OmahaZoo.jpg" alt="Henry Doorly Zoo" style="width: 100%">
+			<h2 style="text-align: center;">Henry Doorly Zoo</h2>
+		</div>
+	</div>
 		<%
-	out.print(session.getAttribute("LoyaltyPoints"));
-
+		}
+		if(res[12] == "2" || res[12].equalsIgnoreCase("2")){
 		%>
-	</center>
-
-<%
-if(session.getAttribute("City") == "Omaha"){
-%>
-
-<img src="OmahaBaseball.jpg" alt="TD Ameritrade Park" width="500" height="600">
-<img src="OmahaFootball.jpg" alt="Memorial Stadium" width="500" height="600">
-<img src="OmahaZoo.jpg" alt="Henry Doorly Zoo" width="500" height="600">
-<%
-}
-%>
-
-<%
-if(session.getAttribute("City") == "Denver"){
-	%>
-
-	<img src="DenverPark.jpg" alt="Rocky Mountain National Park" width="500" height="600">
-	<img src="DenverGardens.jpg" alt="Denver Botanic Gardens" width="500" height="600">
-	<img src="DenverBaseball.jpg" alt="Coors Field" width="500" height="600">
-	<%
-}
-%>
-
-<%
-if(session.getAttribute("City") == "Los Angeles"){
-	%>
-
-	<img src="LAUniversal.jpg" alt="Universal Studios" width="500" height="600">
-	<img src="LAPier.jpg" alt="Santa Monica Pier" width="500" height="600">
-	<img src="LAGetty.jpg" alt="The Getty Center" width="500" height="600">
-	<%
-}
-%>
-
-
-	<%
+		
+	<div>
+		<div class="boxes">
+			<img class="cities" src="DenverPark.jpg" alt="Rocky Mountain National Park" style="width: 100%">
+			<h2 style="text-align: center;">Rocky Mountain National Park</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="DenverGardens.jpg" alt="Denver Botanic Gardens" style="width: 100%">
+			<h2 style="text-align: center;">Denver Botanic Gardens</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="DenverBaseball.jpg" alt="Coors Field" style="width: 100%">
+			<h2 style="text-align: center;">Coors Field</h2>
+		</div>
+	</div>
+		<%
+		}
+		if(res[12] == "3" || res[12].equalsIgnoreCase("3")){
+		%>
+		
+	<div>
+		<div class="boxes">
+			<img class="cities" src="LAUniversal.jpg" alt="Universal Studios" style="width: 100%">
+			<h2 style="text-align: center;">Universal Studios</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="LAPier.jpg" alt="Santa Monica Pier" style="width: 100%">
+			<h2 style="text-align: center;">Santa Monica Pier</h2>
+		</div>
+		<div class="boxes">
+			<img class="cities" src="LAGetty.jpg" alt="The Getty Center" style="width: 100%">
+			<h2 style="text-align: center;">The Getty Center</h2>
+	</div>
+	
+	</div>
+		<%
+		}
 	}
 	%>
 </body>
