@@ -10,6 +10,12 @@ import java.sql.*;
 
 
 public class ReservationSummaryBean {
+	
+	// Create variables for database connection
+	String dbUser = "root";
+	String dbPass = "password";
+	String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
+	
 	public String setCity(String city) {
 		String cityLocation = "";
 				
@@ -108,11 +114,6 @@ public class ReservationSummaryBean {
 	
 	// Amenities prices will be added if selected by the user
 	public double amenitiesPrice(String wifiSelected, String breakfastSelected, String parkingSelected, int totalDays) {
-		
-		// Create variables for database connection
-  		String dbUser = "root";
-  		String dbPass = "password";
-  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
   		
   		// Tries to insert data into the table 
     	Connection con = null;
@@ -192,13 +193,7 @@ public class ReservationSummaryBean {
 
 	// Finds the selected room and returns the cost of the room
 	public double getRoomPrice(String city, String roomName, int totalDays) throws SQLException {
-		
-		// Create variables for database connection
-  		String dbUser = "root";
-  		String dbPass = "password";
-  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
   		
-  		// Tries to insert data into the table 
     	Connection con = null;
         Statement stmt = null;
         
@@ -221,7 +216,6 @@ public class ReservationSummaryBean {
             e.printStackTrace();
         }
         
-        //Attempt to retrieve user data from the table
         try {
         	// Finds the city hotel ID so that the room and room price can be determined
         	rsCity = stmt.executeQuery("SELECT HotelId FROM hotel WHERE City = '" + city + "'");
@@ -276,15 +270,8 @@ public class ReservationSummaryBean {
 		return val2;
 	}
 	
-	// Finds the selected room and returns the cost of the room
 	public int getHotelId(String city) throws SQLException {
 			
-		// Create variables for database connection
-	  	String dbUser = "root";
-	  	String dbPass = "password";
-	  	String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
-	  		
-	  	// Tries to insert data into the table 
 	    Connection con = null;
 	    Statement stmt = null;
 	        
@@ -305,7 +292,6 @@ public class ReservationSummaryBean {
 	        e.printStackTrace();
 	    }
 	        
-	    //Attempt to retrieve user data from the table
 	    try {
 	    	// Finds the city hotel ID so that the room and room price can be determined
 	        rsCity = stmt.executeQuery("SELECT HotelId FROM hotel WHERE City = '" + city + "'");
@@ -331,12 +317,53 @@ public class ReservationSummaryBean {
 		return cityId;
 	}
 	
+	public String getHotelName(int hotelId) {
+
+		Connection con = null;
+		Statement stmt = null;
+						        
+		ResultSet rs = null;
+						        
+		String hotelName = "";
+						            
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = dbURLandName + "?";
+						                
+			con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+			stmt = con.createStatement();  
+			System.out.println("Connection Successful");
+		}
+		catch(Exception e){
+			System.out.println("Error connecting to the database.");
+			e.printStackTrace();
+		}
+						        
+		try {
+			rs = stmt.executeQuery("SELECT HotelName FROM hotel WHERE HotelId = '" + hotelId + "'");
+			while(rs.next()) {
+				hotelName = rs.getString("HotelName");
+			}
+		}
+		catch(SQLException e){
+			System.out.println("Error retrieving data");
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				rs.close();
+				stmt.close();
+				con.close();
+			}
+			catch(SQLException e){
+				System.out.println("Connection close failed");
+				e.printStackTrace();
+			}
+		}
+		return hotelName;
+	}
+	
 	public int getroomId(int hotelId, String roomName) throws SQLException {
-				
-		// Create variables for database connection
-		String dbUser = "root";
-		String dbPass = "password";
-		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
 		  		
 		// Tries to insert data into the table 
 		Connection con = null;
@@ -359,9 +386,7 @@ public class ReservationSummaryBean {
 		    e.printStackTrace();
 		}
 		        
-		//Attempt to retrieve user data from the table
 		try {
-			// Finds the city hotel ID so that the room and room price can be determined
 			rsRoom = stmt.executeQuery("SELECT RoomId FROM room WHERE Name = '" + roomName + "' AND HotelID = '" + hotelId + "'");
 		    while(rsRoom.next()) {
 		    	roomId = rsRoom.getInt("RoomId");
@@ -384,14 +409,53 @@ public class ReservationSummaryBean {
 		}
 		return roomId;
 	}
+	
+	public String getRoomSize(int roomId) {
 
-	public void setReservation(String bookDate, String arrive, String depart, int points, int guest, String amenities, double cost, int hotelId, String email, int roomId) {
-		// Create variables for database connection
-  		String dbUser = "root";
-  		String dbPass = "password";
-  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
-  		
-  		// Tries to insert data into the table 
+		Connection con = null;
+		Statement stmt = null;		        
+		ResultSet rs = null;			        
+		String roomSize = "";
+				            
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = dbURLandName + "?";
+				                
+			con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+			stmt = con.createStatement();  
+			System.out.println("Connection Successful");
+		}
+		catch(Exception e){
+			System.out.println("Error connecting to the database.");
+			e.printStackTrace();
+		}
+				        
+		try {
+			rs = stmt.executeQuery("SELECT Name FROM room WHERE RoomId = '" + roomId + "'");
+			while(rs.next()) {
+				roomSize = rs.getString("Name");
+			}
+		}
+		catch(SQLException e){
+			System.out.println("Error retrieving data");
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				rs.close();
+				stmt.close();
+				con.close();
+			}
+			catch(SQLException e){
+				System.out.println("Connection close failed");
+				e.printStackTrace();
+			}
+		}
+		return roomSize;
+	}
+
+	public void setReservation(String bookDate, String arrive, String depart, int points, int guest, String amenities, int totalDays, double roomCost, double amenitiesCost, double taxes, double totalCost, int hotelId, String email, int roomId) {
+		
     	Connection con = null;
         Statement stmt = null;
             
@@ -408,9 +472,8 @@ public class ReservationSummaryBean {
             e.printStackTrace();
         }
         
-        //Attempt to insert user data into "reservation" table and points into user table
         try{
-            stmt.execute("INSERT INTO reservation(BookingDate, ArrivalDate, DepartureDate, PointsEarned, NumberOfGuests, SelectedAmenities, Cost, HotelId, Email, RoomId) VALUES ('"+ bookDate + "', '" + arrive + "', '" + depart + "', '" + points + "', '" + guest + "', '" + amenities + "', '" + cost + "', '" + hotelId + "', '" + email + "', '" + roomId + "')"); 
+            stmt.execute("INSERT INTO reservation(BookingDate, ArrivalDate, DepartureDate, PointsEarned, NumberOfGuests, SelectedAmenities, TotalDays, RoomCost, AmenitiesCost, Taxes, TotalCost, HotelId, Email, RoomId) VALUES ('"+ bookDate + "', '" + arrive + "', '" + depart + "', '" + points + "', '" + guest + "', '" + amenities + "', '" + totalDays + "', '" + roomCost + "', '" + amenitiesCost + "', '" + taxes + "', '"   + totalCost + "', '" + hotelId + "', '" + email + "', '" + roomId + "')"); 
             System.out.println();
         }
         catch(SQLException e){
@@ -429,13 +492,69 @@ public class ReservationSummaryBean {
         }
 	}
 	
+	public String[] getReservation(String email) {
+		
+    	Connection con = null;
+        Statement stmt = null;
+        ResultSet rsres = null;
+        
+        String [] reservation = new String[15];
+            
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String url = dbURLandName + "?";
+                
+            con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+            stmt = con.createStatement();  
+            System.out.println("Connection Successful");
+        }
+        catch(Exception e){
+            System.out.println("Error connecting to the database.");
+            e.printStackTrace();
+        }
+        
+        try{
+            rsres = stmt.executeQuery("SELECT* FROM reservation WHERE Email = '" + email + "'"); 
+            while (rsres.next()) {
+            	reservation[0] = rsres.getString("ReservationId");
+            	reservation[1] = rsres.getString("BookingDate");
+            	reservation[2] = rsres.getString("ArrivalDate");
+            	reservation[3] = rsres.getString("DepartureDate");
+            	reservation[4] = rsres.getString("PointsEarned");
+            	reservation[5] = rsres.getString("NumberOfGuests");
+            	reservation[6] = rsres.getString("SelectedAmenities");
+            	reservation[7] = rsres.getString("TotalDays");
+            	reservation[8] = rsres.getString("RoomCost");
+            	reservation[9] = rsres.getString("AmenitiesCost");
+            	reservation[10] = rsres.getString("Taxes");
+            	reservation[11] = rsres.getString("TotalCost");
+            	reservation[12] = rsres.getString("HotelId");
+            	reservation[13] = rsres.getString("Email");
+            	reservation[14] = rsres.getString("RoomId");
+            }
+            System.out.println();
+        }
+        catch(SQLException e){
+            System.out.println("Error retrieving data");
+            e.printStackTrace();
+            
+        }
+        
+        try{
+        	rsres.close();
+            stmt.close();
+            con.close();
+        }
+        catch(SQLException e){
+            System.out.println("Connection close failed");
+            e.printStackTrace();
+        }
+		
+		return reservation;
+	}
+	
 	public void setLoyaltyPoints(int points, String email) { 
-		// Create variables for database connection
-  		String dbUser = "root";
-  		String dbPass = "password";
-  		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
-  		
-  		// Tries to insert data into the table 
+		
     	Connection con = null;
         Statement stmt = null;
         ResultSet rs = null; 
@@ -454,7 +573,6 @@ public class ReservationSummaryBean {
             e.printStackTrace();
         }
         
-        //Attempt to insert user data into "reservation" table and points into user table
         try{
         	rs = stmt.executeQuery("SELECT LoyaltyPoints FROM user WHERE Email = '" + email + "'");
 		    while(rs.next()) {
@@ -481,14 +599,51 @@ public class ReservationSummaryBean {
         }
 	}
 	
+	public int getLoyaltyPoints(String email) {
+		Connection con = null;
+		Statement stmt = null;		        
+		ResultSet rs = null;			        
+		int lp = 0;  
+				            
+		try{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String url = dbURLandName + "?";
+				                
+			con = DriverManager.getConnection(url + "user=" + dbUser + "&" + "password=" + dbPass);             
+			stmt = con.createStatement();  
+			System.out.println("Connection Successful");
+		}
+		catch(Exception e){
+			System.out.println("Error connecting to the database.");
+			e.printStackTrace();
+		}
+				        
+		try {
+			rs = stmt.executeQuery("SELECT LoyaltyPoints FROM user WHERE Email = '" + email + "'");
+			while(rs.next()) {
+				lp = rs.getInt("LoyaltyPoints");
+			}
+		}
+		catch(SQLException e){
+			System.out.println("Error retrieving data");
+			e.printStackTrace();
+		}
+		finally {
+			try{
+				rs.close();
+				stmt.close();
+				con.close();
+			}
+			catch(SQLException e){
+				System.out.println("Connection close failed");
+				e.printStackTrace();
+			}
+		}
+		return lp;
+	}
+	
 	public int getReservationId(int hotelId, String email, int roomId) throws SQLException {
 		
-		// Create variables for database connection
-		String dbUser = "root";
-		String dbPass = "password";
-		String dbURLandName = "jdbc:mysql://localhost:3306/provisio";
-		  		
-		// Tries to insert data into the table 
 		Connection con = null;
 		Statement stmt = null;
 		        
@@ -509,9 +664,7 @@ public class ReservationSummaryBean {
 		    e.printStackTrace();
 		}
 		        
-		//Attempt to retrieve user data from the table
 		try {
-			// Finds the city hotel ID so that the room and room price can be determined
 			rs = stmt.executeQuery("SELECT ReservationId FROM reservation WHERE HotelId = '" + hotelId + "' AND Email = '" + email + "' AND RoomId = '" + roomId + "'");
 		    while(rs.next()) {
 		    	reservationId = rs.getInt("ReservationId");

@@ -131,7 +131,7 @@
             
         try{
             String query = "CREATE TABLE reservation(ReservationId int NOT NULL AUTO_INCREMENT, BookingDate varchar(15) NOT NULL, " +
-                    "ArrivalDate varchar(12) NOT NULL, DepartureDate varchar(12) NOT NULL, PointsEarned int NOT NULL, NumberOfGuests int NOT NULL, SelectedAmenities varchar(45), Cost double NOT NULL, HotelId int NOT NULL, Email varchar(30) NOT NULL, RoomId int NOT NULL, PRIMARY KEY (ReservationId), " +
+                    "ArrivalDate varchar(12) NOT NULL, DepartureDate varchar(12) NOT NULL, PointsEarned int NOT NULL, NumberOfGuests int NOT NULL, SelectedAmenities varchar(45), TotalDays int NOT NULL, RoomCost double NOT NULL, AmenitiesCost double NOT NULL, Taxes double NOT NULL, TotalCost double NOT NULL, HotelId int NOT NULL, Email varchar(30) NOT NULL, RoomId int NOT NULL, PRIMARY KEY (ReservationId), " +
                     "FOREIGN KEY (HotelId) REFERENCES hotel (HotelId), " + 
                     "FOREIGN KEY (Email) REFERENCES user (Email), " + 
                     "FOREIGN KEY (RoomId) REFERENCES room (RoomId));";  

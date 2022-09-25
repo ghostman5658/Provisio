@@ -50,38 +50,51 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 	} 
 	else {
 		if(request.getMethod().equals("POST")){
+			
+			//get booking date, arrival date, and departure date
 			String bd = (String)session.getAttribute("bookingDate");
-			//Date bookingDate = new SimpleDateFormat("yyyy-MM-dd").parse(bd);  
-			
 			String ad = (String)session.getAttribute("checkInDate");
-			//Date arrivalDate = new SimpleDateFormat("yyyy-MM-dd").parse(ad); 
-			
 			String dd = (String)session.getAttribute("checkOutDate");
-			//Date departureDate = new SimpleDateFormat("yyyy-MM-dd").parse(dd); 
-			
+			int hotelId = (Integer)session.getAttribute("hotelId");
+			int roomId = (Integer)session.getAttribute("roomId");
 			int pointsEarned = (int)session.getAttribute("pointsEarned");
 			int guestNum = (int)session.getAttribute("guestNum");
 			String selectedAmenities = (String)session.getAttribute("selectedAmenities");
-			double cost = (Double)session.getAttribute("grandTotal");
-			int hotelId = (Integer)session.getAttribute("hotelId");
+			int totalDays = (Integer)session.getAttribute("totalDays");
+			double roomCost = (Double)session.getAttribute("roomPrice");
+			double amenitiesCost = (Double)session.getAttribute("amenitiesPrice");
+			double taxes = (Double)session.getAttribute("tax");	
+			double totalCost = (Double)session.getAttribute("grandTotal");
+			
 			String email = (String)session.getAttribute("sessionID");
-			int roomId = (Integer)session.getAttribute("roomId");
+			
 		
-			summary.setReservation(bd, ad, dd, pointsEarned, guestNum, selectedAmenities, cost, hotelId, email, roomId);
+			summary.setReservation(bd, ad, dd, pointsEarned, guestNum, selectedAmenities, totalDays, roomCost, amenitiesCost, taxes, totalCost, hotelId, email, roomId);
 			summary.setLoyaltyPoints(pointsEarned, email); 
 			int reservationId = summary.getReservationId(hotelId, email, roomId);
+			session.setAttribute("reservationId", reservationId);
 	%>
 	<div class="response">
         <h3 class="responseHeader">
         <%
         out.println("Congratulations you have successfully booked your room, your confirmation number is " +  reservationId);
-
         %> </h3><br />
         <a class="highlight" href="index.html">Home Page</a> 
     </div>
 	<% 
 		}
-		else {
+		else if(request.getMethod().equals("GET")) {
+			if (session.getAttribute("reservationId") != null) {
+				%>
+				<div class="response">
+			        <h3 class="responseHeader">
+			        <%
+			        out.println("Oops, something went wrong!");
+			        %> </h3><br />
+			        <a class="highlight" href="Reservation.jsp">Reservation Page</a> 
+			    </div>
+				<% 
+			}
             String checkInDate = request.getParameter("CheckIn");
             String checkOutDate = request.getParameter("CheckOut");
             int totalDays = summary.dayLength(checkInDate, checkOutDate);
@@ -110,10 +123,9 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
 			String selectedAmenities = summary.selectedAmenities(amenWifi, amenBreakfast, amenParking);
 				
             double roomPrice = summary.getRoomPrice(city, roomSize, totalDays);
-            double adjustedRoomPrice = summary.addFivePercent(roomPrice);
 			double amenitiesPrice = summary.amenitiesPrice(amenWifi, amenBreakfast, amenParking, totalDays);
-			double tax = summary.getTax(amenitiesPrice, adjustedRoomPrice); 
-            double grandTotal = summary.getGrandTotal(amenitiesPrice, adjustedRoomPrice, tax);
+			double tax = summary.getTax(amenitiesPrice, roomPrice); 
+            double grandTotal = summary.getGrandTotal(amenitiesPrice, roomPrice, tax);
             summary.round(grandTotal, 2);
             double holidayTotal = summary.addFivePercent(grandTotal); 
             summary.round(holidayTotal, 2); 
@@ -170,6 +182,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>Destination: </td>
                                 <td>
                                 <%
+                                session.setAttribute("hotelId", hotelId); 
                                 out.print(city);
                                 %> 
                                 </td>
@@ -178,7 +191,8 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>Room Size: </td>
                                 <td>
                                 <%
-                                out.print(roomSize);			
+                                session.setAttribute("roomId", roomId); 
+                                out.print(roomSize);	
                                 %> 
                                 </td>
                             </tr>
@@ -228,7 +242,8 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                             <tr>
                                 <td>Nights: </td>
                                 <td>
-                                <% 			
+                                <% 		
+                                session.setAttribute("totalDays", totalDays);
                                 out.println(totalDays);
                                 %>		
                                 </td>
@@ -237,7 +252,8 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>Room Cost: </td>
                                 <td>
                                 <%
-                                out.print("$" + String.format("%.2f", adjustedRoomPrice)); 
+                                session.setAttribute("roomPrice", roomPrice);
+                                out.print("$" + String.format("%.2f", roomPrice)); 
                                 %>				
                                 </td>
                             </tr>
@@ -246,6 +262,7 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 <td>
                                 <%
                                 // **If amenities is selected, price will be true and added to the total cost**
+                                session.setAttribute("amenitiesPrice", amenitiesPrice);
                                 out.print("$" + String.format("%.2f", amenitiesPrice)); 
                                 %>			
                                 </td>
@@ -283,17 +300,11 @@ ReservationSummaryBean summary = new ReservationSummaryBean();
                                 </strong></td>
                             </tr>
                         </table>
-                        <%
-                        session.setAttribute("hotelId", hotelId); 
-                        session.setAttribute("roomId", roomId); 
-                        %>
-                <div class="center">
-                    <button type='submit'>Confirm</button>
-                </div>
+                	<div class="center">
+                    	<button type='submit'>Confirm</button>
+                    	<button type='submit' id="cancel" formaction="Reservation.jsp">Cancel</button>
+                	</div>
                 </form>
-                <div class="center">
-                <button type='submit' id="cancel" onClick="window.location.href='http://localhost:8080/Provisio/Reservation.jsp'">Cancel</button>
-                </div>
                 </div>
 	        <%
 		}
