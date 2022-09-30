@@ -41,12 +41,12 @@
 	else {
 		ReservationSummaryBean summary = new ReservationSummaryBean();
 		String email = (String)session.getAttribute("sessionID");
-		String [] res = summary.getReservation(email);
+		String[] res = summary.getReservation(email);
 		
 		int lp = summary.getLoyaltyPoints(email);
 	%>
 	<div class="randl">
-	<h1 class="formHeading">Your Loyalty Points</h1><hr /><br /> 
+	<h1 class="formHeading">Your Loyalty Points Overview</h1><hr /><br /> 
 		<table>
 			<tr>
 				<td>Email: </td>
@@ -60,62 +60,74 @@
 				<%out.print(lp);%>
 				</td>
 			</tr>
+            <%
+                if (res[12] == null) {
+                    out.print("<tr>");
+                    out.print("<td>");
+                    out.print("Reservation status: ");
+                    out.print("</td>");
+                    out.print("<td>");
+                    out.print("No Reservations created.");
+                    out.print("</td>");
+                    out.print("</tr>");
+            %>
 		</table>
 	</div>
 	<%
-		if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
+    }
+		else if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
 	%>
 	
 	<div>
 		<div class="boxes">
 			<img class="cities" src="OmahaBaseball.jpg" alt="TD Ameritrade Park" style="width: 100%">
-			<h2 style="text-align: center;">TD Ameritrade Park</h2>
+			<p style="text-align: center;">TD Ameritrade Park</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="OmahaFootball.jpg" alt="Memorial Stadium" style="width: 100%">
-			<h2 style="text-align: center;">Memorial Stadium</h2>
+			<p style="text-align: center;">Memorial Stadium</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="OmahaZoo.jpg" alt="Henry Doorly Zoo" style="width: 100%">
-			<h2 style="text-align: center;">Henry Doorly Zoo</h2>
+			<p style="text-align: center;">Henry Doorly Zoo</p>
 		</div>
 	</div>
 		<%
 		}
-		if(res[12] == "2" || res[12].equalsIgnoreCase("2")){
+		else if(res[12] == "2" || res[12].equalsIgnoreCase("2")){
 		%>
 		
 	<div>
 		<div class="boxes">
 			<img class="cities" src="DenverPark.jpg" alt="Rocky Mountain National Park" style="width: 100%">
-			<h2 style="text-align: center;">Rocky Mountain National Park</h2>
+			<p style="text-align: center;">Rocky Mountain National Park</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="DenverGardens.jpg" alt="Denver Botanic Gardens" style="width: 100%">
-			<h2 style="text-align: center;">Denver Botanic Gardens</h2>
+			<p style="text-align: center;">Denver Botanic Gardens</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="DenverBaseball.jpg" alt="Coors Field" style="width: 100%">
-			<h2 style="text-align: center;">Coors Field</h2>
+			<p style="text-align: center;">Coors Field</p>
 		</div>
 	</div>
 		<%
 		}
-		if(res[12] == "3" || res[12].equalsIgnoreCase("3")){
+		else if (res[12] == "3" || res[12].equalsIgnoreCase("3")){
 		%>
 		
 	<div>
 		<div class="boxes">
 			<img class="cities" src="LAUniversal.jpg" alt="Universal Studios" style="width: 100%">
-			<h2 style="text-align: center;">Universal Studios</h2>
+			<p style="text-align: center;">Universal Studios</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="LAPier.jpg" alt="Santa Monica Pier" style="width: 100%">
-			<h2 style="text-align: center;">Santa Monica Pier</h2>
+			<p style="text-align: center;">Santa Monica Pier</p>
 		</div>
 		<div class="boxes">
 			<img class="cities" src="LAGetty.jpg" alt="The Getty Center" style="width: 100%">
-			<h2 style="text-align: center;">The Getty Center</h2>
+			<p style="text-align: center;">The Getty Center</p>
 	</div>
 	
 	</div>
