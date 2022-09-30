@@ -340,7 +340,7 @@ public class ReservationSummaryBean {
 		}
 						        
 		try {
-			rs = stmt.executeQuery("SELECT HotelName FROM hotel WHERE HotelId = '" + hotelId + "'");
+			rs = stmt.executeQuery("SELECT City FROM hotel WHERE HotelId = '" + hotelId + "'");
 			while(rs.next()) {
 				hotelName = rs.getString("HotelName");
 			}

@@ -43,7 +43,11 @@ DepartureDate
 Points Earned
 Number of Guest
 SelectedAmenities
-Cost
+TotalDays
+RoomCost
+AmenitiesCost
+Taxes
+TotalCost
 HotelId (FK)
 Email (FK)
 RoomID (FK)
