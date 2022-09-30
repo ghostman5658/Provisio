@@ -27,6 +27,7 @@
 
     <body>
         <%
+
         if (session.getAttribute("sessionID") == null) {
             %>
         <div class="response">
@@ -82,6 +83,12 @@
                 	reservation[12] = rsres.getString("HotelId");
                 	reservation[13] = rsres.getString("Email");
                 	reservation[14] = rsres.getString("RoomId");
+
+                    Double rCost = Double.parseDouble(reservation[8]);
+                    Double aCost = Double.parseDouble(reservation[9]);
+                    Double tax = Double.parseDouble(reservation[10]);
+                    Double tCost = Double.parseDouble(reservation[11]);
+                    DecimalFormat format = new DecimalFormat("$#0.00");
                 	
             
             		int roomId = Integer.parseInt(reservation[14]); 
@@ -121,8 +128,16 @@
                             <td>Destination: </td>
                             <td>
                             <%
-                            out.print(destination);
-                            %> 
+                                if (destination.contains("One")) {
+                                    out.print("Omaha"); 
+                                }
+                                else if (destination.contains("Two")){
+                                    out.print("Denver");
+                                }
+                                else if (destination.contains("Three")){
+                                    out.print("Los Angeles");
+                                }
+                            %>		
                             </td>
                         </tr>
                         <tr>
@@ -161,7 +176,7 @@
                             <td>Room Cost: </td>
                             <td>
                             <%
-                            out.print("$" + reservation[8]);
+                            out.print(format.format(rCost));
                             %>				
                             </td>
                         </tr>
@@ -169,7 +184,7 @@
                             <td>Amenities Cost: </td>
                             <td>
                             <%
-                            out.print("$" + reservation[9]);
+                            out.print(format.format(aCost));
                             %>				
                             </td>
                         </tr>
@@ -177,7 +192,7 @@
                             <td>Taxes (10%): </td>
                             <td>
                             <%
-                            out.print("$" + reservation[10]);  
+                            out.print(format.format(tax));  
                             %> 
                             </td>
                         </tr>
@@ -185,7 +200,7 @@
                             <td><strong>Total Cost: </strong></td>
                             <td><strong>
                             <%
-                            out.print("$" + reservation[11]);
+                            out.print(format.format(tCost));
                             %>		
                             </strong></td>
                         </tr>
