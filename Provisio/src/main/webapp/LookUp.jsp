@@ -128,16 +128,8 @@
                             <td>Destination: </td>
                             <td>
                             <%
-                                if (destination.contains("One")) {
-                                    out.print("Omaha"); 
-                                }
-                                else if (destination.contains("Two")){
-                                    out.print("Denver");
-                                }
-                                else if (destination.contains("Three")){
-                                    out.print("Los Angeles");
-                                }
-                            %>		
+                            out.print(destination);
+                            %>
                             </td>
                         </tr>
                         <tr>
