@@ -342,11 +342,11 @@ public class ReservationSummaryBean {
 		try {
 			rs = stmt.executeQuery("SELECT City FROM hotel WHERE HotelId = '" + hotelId + "'");
 			while(rs.next()) {
-				hotelName = rs.getString("HotelName");
+				hotelName = rs.getString("City");
 			}
 		}
 		catch(SQLException e){
-			System.out.println("Error retrieving data");
+			System.out.println("Error retrieving city name");
 			e.printStackTrace();
 		}
 		finally {

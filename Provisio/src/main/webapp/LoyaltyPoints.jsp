@@ -44,6 +44,28 @@
 		String[] res = summary.getReservation(email);
 		
 		int lp = summary.getLoyaltyPoints(email);
+		
+		if (res[12] == null) {
+			%>
+			<div class="randl">
+			<h1 class="formHeading">Reservation Status</h1><hr /><br /> 
+				<table>
+					<tr>
+						<td>Email: </td>
+						<td>
+						<%out.print(email);%>
+						</td>
+					</tr>
+					<tr>
+						<td>Reservations: </td>
+						<td><strong>No reservations created</strong></td>
+					</tr>
+				</table>
+			</div>
+			<% 
+		}
+		else {
+			
 	%>
 	<div class="randl">
 	<h1 class="formHeading">Your Loyalty Points Overview</h1><hr /><br /> 
@@ -60,22 +82,10 @@
 				<%out.print(lp);%>
 				</td>
 			</tr>
-            <%
-                if (res[12] == null) {
-                    out.print("<tr>");
-                    out.print("<td>");
-                    out.print("Reservation status: ");
-                    out.print("</td>");
-                    out.print("<td>");
-                    out.print("No Reservations created.");
-                    out.print("</td>");
-                    out.print("</tr>");
-            %>
 		</table>
 	</div>
 	<%
-    }
-		else if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
+		if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
 	%>
 	
 	<div>
@@ -128,10 +138,11 @@
 		<div class="boxes">
 			<img class="cities" src="LAGetty.jpg" alt="The Getty Center" style="width: 100%">
 			<p style="text-align: center;">The Getty Center</p>
-	</div>
+		</div>
 	
 	</div>
 		<%
+			}
 		}
 	}
 	%>
