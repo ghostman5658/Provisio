@@ -642,6 +642,54 @@ public class ReservationSummaryBean {
 		return lp;
 	}
 	
+	
+	public int getExcursionPoints(String excursion) {
+		int excursionPoints = 0;
+		if (excursion.equalsIgnoreCase("ameritradePark") || excursion.equalsIgnoreCase("rockyMountain") || excursion.equalsIgnoreCase("universalStudios")) {
+			excursionPoints = 400;
+		}
+		else if (excursion.equalsIgnoreCase("henryZoo") || excursion.equalsIgnoreCase("denverBotanic") || excursion.equalsIgnoreCase("santaMonica")) {
+			excursionPoints = 300;
+		}
+		else if (excursion.equalsIgnoreCase("memorialStadium") || excursion.equalsIgnoreCase("coorsField") || excursion.equalsIgnoreCase("gettyCenter")) {
+			excursionPoints = 750;
+		}
+		return excursionPoints;
+	}
+	
+	public String getExcursionName(String excursion) {
+		String excursionName = "";
+		if (excursion.equalsIgnoreCase("ameritradePark")) {
+			excursionName = "TD Ameritrade Park";
+		}
+		else if (excursion.equalsIgnoreCase("rockyMountain")) {
+			excursionName = "Rocky Mountain National Park";
+		}
+		else if (excursion.equalsIgnoreCase("universalStudios")) {
+			excursionName = "Universal Studios";
+		}
+		else if (excursion.equalsIgnoreCase("henryZoo")) {
+			excursionName = "Henry Doorly Zoo";
+		}
+		else if (excursion.equalsIgnoreCase("denverBotanic")) {
+			excursionName = "Denver Botanic Gardens";
+		}
+		else if(excursion.equalsIgnoreCase("santaMonica"))  {
+			excursionName = "Santa Monica Pier";
+		}
+		else if (excursion.equalsIgnoreCase("memorialStadium")) {
+			excursionName = "Memorial Stadium";
+		}
+		else if (excursion.equalsIgnoreCase("coorsField")) {
+			excursionName = "Coors Field";
+		}
+		else if (excursion.equalsIgnoreCase("gettyCenter")) {
+			excursionName = "The Getty Center";
+		}
+		
+		return excursionName;
+	}
+	
 	public int getReservationId(int hotelId, String email, int roomId) throws SQLException {
 		
 		Connection con = null;
