@@ -84,11 +84,30 @@
 			</tr>
 		</table>
 	</div>
-	<%
+	<% 
 		if(res[12] == "1" || res[12].equalsIgnoreCase("1")){
 	%>
-	
 	<div>
+	<form class="randl" method='POST' action='LoyaltyPoints2.jsp'>
+		<h1 class="formHeading">Use Your Loyalty Points</h1><hr /><br />
+			<table>
+				<tr>
+					<td>Excursions:</td>
+					<td>
+						<select name="excursion" required="required">
+				    		<option disabled selected value> -- select an option -- </option>
+							<option value="ameritradePark">TD Ameritrade Park - 400 points</option>
+                    		<option value="henryZoo">Henry Doorly Zoo - 300 points</option>
+                    		<option value="memorialStadium">Memorial Stadium - 750 points</option>
+                		</select>
+                	</td>
+                </tr>
+            </table>
+        	<div class="center">
+        		<button type='submit'>Select</button>
+        	</div>
+        </form>
+        <br />
 		<div class="boxes">
 			<img class="cities" src="OmahaBaseball.jpg" alt="TD Ameritrade Park" style="width: 100%">
 			<p style="text-align: center;">TD Ameritrade Park</p>
@@ -108,14 +127,36 @@
 		%>
 		
 	<div>
+		<form class="randl" method='POST' action='LoyaltyPoints2.jsp'>
+		<h1 class="formHeading">Use Your Loyalty Points</h1><hr /><br />
+			<table>
+				<tr>
+					<td>Excursions:</td>
+					<td>
+						<select name="excursion" required="required">
+				    		<option disabled selected value> -- select an option -- </option>
+							<option value="rockyMountain">Rocky Mountain National Park - 400 points</option>
+                    		<option value="denverBotanic">Denver Botanic Gardens - 300 points</option>
+                    		<option value="coorsField">Coors Field - 750 points</option>
+                		</select>
+                	</td>
+                </tr>
+            </table>
+        	<div class="center">
+        		<button type='submit'>Select</button>
+        	</div>
+        </form>
+        <br />
 		<div class="boxes">
 			<img class="cities" src="DenverPark.jpg" alt="Rocky Mountain National Park" style="width: 100%">
 			<p style="text-align: center;">Rocky Mountain National Park</p>
 		</div>
+	
 		<div class="boxes">
 			<img class="cities" src="DenverGardens.jpg" alt="Denver Botanic Gardens" style="width: 100%">
 			<p style="text-align: center;">Denver Botanic Gardens</p>
 		</div>
+	
 		<div class="boxes">
 			<img class="cities" src="DenverBaseball.jpg" alt="Coors Field" style="width: 100%">
 			<p style="text-align: center;">Coors Field</p>
@@ -127,6 +168,26 @@
 		%>
 		
 	<div>
+	<form class="randl" method='POST' action='LoyaltyPoints2.jsp'>
+		<h1 class="formHeading">Use Your Loyalty Points</h1><hr /><br />
+			<table>
+				<tr>
+					<td>Excursions:</td>
+					<td>
+						<select name="excursion" required="required">
+				    		<option disabled selected value> -- select an option -- </option>
+							<option value="universalStudios">Universal Studios - 400 points</option>
+                    		<option value="santaMonica">Santa Monica Pier - 300 points</option>
+                    		<option value="gettyCenter">The Getty Center - 750 points</option>
+                		</select>
+                	</td>
+                </tr>
+            </table>
+        	<div class="center">
+        		<button type='submit'>Select</button>
+        	</div>
+        </form>
+        <br />
 		<div class="boxes">
 			<img class="cities" src="LAUniversal.jpg" alt="Universal Studios" style="width: 100%">
 			<p style="text-align: center;">Universal Studios</p>
@@ -139,7 +200,6 @@
 			<img class="cities" src="LAGetty.jpg" alt="The Getty Center" style="width: 100%">
 			<p style="text-align: center;">The Getty Center</p>
 		</div>
-	
 	</div>
 		<%
 			}

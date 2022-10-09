@@ -325,7 +325,7 @@ button {
 }
 
 .contactForm {
-    display: inline block;
+    display: inline-block;
 	border: 2px solid black;
 	margin-left: 3%;
     margin-top: 1%;
